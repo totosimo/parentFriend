@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/main', to: 'pages#main'
+  post '/main', to: 'pages#location'
   resources :chatrooms, only: [:show] do
     resources :messages, only: [:create]
   end

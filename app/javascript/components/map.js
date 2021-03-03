@@ -1,4 +1,6 @@
 import mapboxgl from 'mapbox-gl';
+import Rails from '@rails/ujs';
+
 // Selecting Elements
 const formSelector = document.getElementById("geo-form");
 
@@ -15,10 +17,21 @@ console.warn(`ERROR(${err.code}): ${err.message}`);
 };
 
 // Obtain current position of the client
-const displayMap = () => {navigator.geolocation.watchPosition((position, error, options) => {
+const displayMap = () => {navigator.geolocation.getCurrentPosition((position, error, options) => {
     const pa = position.coords.latitude;
     const pb = position.coords.longitude;
     const gsd = [pa, pb];
+    const str_gsd = `latitude=${pa}&longitude=${pb}`
+    console.log(str_gsd);
+
+    Rails.ajax({
+        url: "/main",
+        dataType: 'json',
+        type: "post",
+        data: str_gsd,
+    })
+
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvcmdpdXMtc3RvaWN1cyIsImEiOiJja2tzZDN1dW8wbW16MndwY2k5ejBncnl6In0.l9u8Fk9ypU9iOM_wUXTAlA';
     const map = new mapboxgl.Map({
         container: 'map',
@@ -34,7 +47,7 @@ const displayMap = () => {navigator.geolocation.watchPosition((position, error, 
 
 //Fire Up Positioning Algo
 const initCurrentPosition = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     displayMap();
 };
 

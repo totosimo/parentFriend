@@ -1,8 +1,8 @@
 <h1>ParentFriends Around Me</h1>
 <div class="container">
-  <form action="#" id="geo-form">
-    <input type="submit" value="Where am I?" class="inp-submit">
-  </form>
+<%= form_for :user, html: { id: "geo-form"} do |f| %>
+    <%= f.submit "Where am I?" %>
+<% end %>
 </div>
 <hr>
 <div class="container">
