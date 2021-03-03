@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_152002) do
+ActiveRecord::Schema.define(version: 2021_03_03_144325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 2021_03_02_152002) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "date_time_start"
+    t.datetime "date_time_end"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -39,10 +53,13 @@ ActiveRecord::Schema.define(version: 2021_03_02_152002) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
