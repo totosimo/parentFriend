@@ -4,9 +4,17 @@
       <li class="nav-item navbar-li">
         <div class="text-center m-4 pl-4">
           <%= link_to events_path, class: "nav-link" do %>
-            <i class="far fa-calendar-alt navbar-icon"></i>
+            <i class="fas fa-home navbar-icon"></i>
           <% end %>
-          <p class="nav-link navbar-font"><strong>Events</strong></p>
+          <p class="nav-link navbar-font"><strong>Home</strong></p>
+        </div>
+      </li>
+      <li class="nav-item navbar-li">
+        <div class="text-center m-4 pl-4">
+          <%= link_to events_path, class: "nav-link" do %>
+            <i class="fas fa-calendar-day navbar-icon"></i>
+          <% end %>
+          <p class="nav-link navbar-font"><strong>My Events</strong></p>
         </div>
       </li>
       <li class="nav-item navbar-li">
@@ -14,15 +22,15 @@
           <%= link_to new_user_session_path, class: "nav-link" do %>
             <i class="fas fa-user-friends navbar-icon"></i>
           <% end %>
-          <p class="nav-link navbar-font"><strong>ParentFriends</strong></p>
+          <p class="nav-link navbar-font"><strong>My Friends</strong></p>
         </div>
       </li>
       <li class="nav-item navbar-li">
         <div class="text-center m-4 pr-4">
           <%= link_to chatrooms_path, class: "nav-link" do %>
-            <i class="far fa-comment-alt navbar-icon"></i>
+            <i class="far fa-comments navbar-icon"></i>
           <% end %>
-          <p class="nav-link navbar-font"><strong>Chat</strong></p>
+          <p class="nav-link navbar-font"><strong>My Chats</strong></p>
         </div>
       </li>
     </ul>
