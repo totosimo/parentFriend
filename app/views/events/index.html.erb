@@ -3,10 +3,13 @@
   <br>
   <p>Placeholder for searchbox</p>
   
-  <div id="mapevents"
-     style="width: 333px; height: 320px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="map-centered">
+    <div id="mapevents"
+      class="events-map-display"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
  
   <% @events.each do |event| %>
     <%= link_to event_path(event), class: "card-event-link" do %>
@@ -23,6 +26,6 @@
           <p><%= event.description %></p>
         </div>
       </div>
-      <% end %>
+    <% end %>
   <% end %>
 </div>
