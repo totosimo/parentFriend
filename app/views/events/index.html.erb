@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>My events</h1>
+  <br>
+  <br>
+  <br>
+  <h3>Placeholder for map</h3>
+  <br>
+  <br>
+  <br>
+  <% @events.each do |event| %>
+  <ul>
+    <li> <%= link_to event.name, event_path(event) %> | <%= event.date_time_start %> | <%= event.date_time_end %> </li>
+  </ul>
+  <% end %>
+</div>
