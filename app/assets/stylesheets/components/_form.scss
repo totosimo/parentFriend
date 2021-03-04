@@ -1,0 +1,21 @@
+.form {
+  margin: 13px;
+
+  h2, p {
+  text-align: center;
+  }
+
+// form-group {
+//   margin-bottom:4px;
+// }
+
+  label, a {
+  font-size: 12px;
+  margin-bottom: 4px;
+  }
+
+  input {
+    font-size: 14px;
+    border-radius: 13px;
+  }
+}
