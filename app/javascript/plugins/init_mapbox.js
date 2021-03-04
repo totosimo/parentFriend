@@ -26,9 +26,9 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl, placeholder: "Find Events", collapsed: false }));
-  }
-};
-
-export { initMapbox };
+    const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl, placeholder: "Find Events", collapsed: false });
+      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    }
+  };
+  export { initMapbox };

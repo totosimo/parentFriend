@@ -2,18 +2,25 @@
     max-width: 200px;
   }
   
-  .mapboxgl-popup-content {
+.mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-  }
+}
 
-  .events-map-display {
+.events-map-display {
     width: 333px; 
     height: 320px;
-  }
+}
 
-  .map-centered {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
+.map-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.geocoder {
+    font-size: 14px;
+    border-radius: 33px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
