@@ -37,7 +37,6 @@ const initCurrentPosition = () => {
                 const map = new mapboxgl.Map({
                 container: 'mapusers',
                 style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb',
-                // style: 'mapbox://styles/mapbox/streets-v11',
                 center: [pb, pa],
                 zoom: 14
             });
