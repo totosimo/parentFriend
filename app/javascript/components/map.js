@@ -30,7 +30,7 @@ const initCurrentPosition = () => {navigator.geolocation.getCurrentPosition((pos
 //Display the map
     mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvcmdpdXMtc3RvaWN1cyIsImEiOiJja2tzZDN1dW8wbW16MndwY2k5ejBncnl6In0.l9u8Fk9ypU9iOM_wUXTAlA';
     const map = new mapboxgl.Map({
-        container: 'map',
+        container: 'mapusers',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [pb, pa],
         zoom: 14
