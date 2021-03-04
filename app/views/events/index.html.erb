@@ -10,20 +10,20 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
  
   <% @events.each do |event| %>
-  <%= link_to event_path(event), class: "card-event-link" do %>
-    <div class="card-event">
-      <%= image_tag "default_event.jpg" %>
-      <div class="card-event-infos">
-        <%= link_to root_path, class: "card-event-link" do %>
-          <i class="fa fa-star card-event-star" aria-hidden="true"></i>
-        <% end %>
-        <%= link_to root_path, class: "card-event-link" do %>
-          <i class="fas fa-comments card-event-chat" aria-hidden="true"></i>
-        <% end %>
-        <h2 class="text-center"><%= event.name %></h2>
-        <p><%= event.description %></p>
+    <%= link_to event_path(event), class: "card-event-link" do %>
+      <div class="card-event">
+        <%= image_tag "default_event.jpg" %>
+        <div class="card-event-infos">
+          <%= link_to root_path, class: "card-event-link" do %>
+            <i class="fa fa-star card-event-star" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to root_path, class: "card-event-link" do %>
+            <i class="fas fa-comments card-event-chat" aria-hidden="true"></i>
+          <% end %>
+          <h2 class="text-center"><%= event.name %></h2>
+          <p><%= event.description %></p>
+        </div>
       </div>
-    </div>
-    <% end %>
+      <% end %>
   <% end %>
 </div>
