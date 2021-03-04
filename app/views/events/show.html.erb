@@ -1,15 +1,26 @@
 <div class="container">
-  <h1> <%= @event.name %> </h1>
-  <br>
-  <br>
-  <br>
+  <div class="headline-flexbox">
+    <div><i class="fas fa-backward icon-big"></i></div>
+    <div><h1><%= @event.name %></h1></div>
+    <div><i class="fas fa-edit icon-big"></i></div>
+  </div>
+
   <h3>Placeholder for image / icon</h3>
-  <br>
-  <br>
-  <br>
-  <ul>
-    <li> <%= @event.date_time_start %> - <%= @event.date_time_end %> </li>
-    <li> <%= @event.description %> </li>
-    <li> <%= @event.address %> | show on map</li>
-  </ul>
+  <div>
+  <!-- placeholder for tagline, needs to be added to DB -->
+  </div>
+  <div>
+    <!-- <p><%= @event.description %></p> -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+  <div>
+    <h2>Dates:</h2>
+    <p>Start: <%= @event.date_time_start %> </p>
+    <p>End: <%= @event.date_time_end %> </p>
+  </div>
+  <div>
+    <h2>Address:</h2>
+    <p><%= @event.address %></p>
+    <i class="fa fa-map-marked-alt icon-small"></i>
+  </div>
 </div>
