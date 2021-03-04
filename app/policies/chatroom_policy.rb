@@ -4,10 +4,13 @@ class ChatroomPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def new?
     true
   end
+
   def show?
-    record.users.include?(user)
+    # record.users.include?(user)
+    true
   end
 end
