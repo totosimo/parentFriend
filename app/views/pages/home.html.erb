@@ -1,9 +1,10 @@
-<h1>Welcome to Find a Parent friend</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h2>Find a Parent Friend</h2>
- <% if user_signed_in? %>
-    <%= current_user.email %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      <% end %>
+ <div class="container-first">
+   <div class= "center">Find a Parent Friend
+   </div>
+    <div class= "login-logout">
+     <div class= "button">
+      <%= link_to 'Login', user_session_path, class: "btn-prim-white" %>
+      <%= link_to 'Sign Up', new_user_session_path, class: "btn-prim-black" %>
+      </div>
+    </div>
+ </div>
