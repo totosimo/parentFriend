@@ -2,7 +2,7 @@
     overflow: hidden;
     height: 80px;
     background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     margin: 10px 0 10px 0;
@@ -56,5 +56,16 @@
         text-decoration: none;
         color: black;
     }
+  }
+
+  .events-scrollable {
+    height: 340px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .events-scrollable::-webkit-scrollbar {
+    display: none;
   }
   

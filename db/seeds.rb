@@ -13,3 +13,11 @@ Event.create(name:"First", description:"Best ever", address:"Invalidenstr. 86 Be
 Event.create(name:"Second", description:"Second best ever", address:"Schlegelstr. 20 Berlin", user: User.last)
 
 Event.create(name:"Third", description:"Third best ever", address:"Schwedter Str. 75 Berlin", user: User.last)
+
+Event.create(name:"Fourth", description:"Fourth best ever", address:"Oranienstr. 25 Berlin", user: User.last)
+
+Event.create(name:"Fifth", description:"Fifth best ever", address:"Chaussesstr. 125 Berlin", user: User.last)
+
+Event.create(name:"Sixth", description:"Sixth best ever", address:"Friedrichstr. 15 Berlin", user: User.last)
+
+Event.create(name:"Seventh", description:"Seventh best ever", address:"Rudy-Dutschke Str. 25 Berlin", user: User.last)
