@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 w-100">
+      <div class="form">
+        <h2>Create your new event</h2>
+          <%= simple_form_for(@event) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :name,
+                      label: 'Give a short descriptive name to your event',
+                      autofocus: true,
+                      placeholder: 'Skateboarding session' %>
+              <%= f.input :description,
+                      label: 'Add a catchy description',
+                      placeholder: 'Let’s get our skateboards and have some fun in the sun! Don\'t forget to bring the necessary protection. And also enough water - looks like it is gonna be hot ;)' %>
+              <%= f.input :event_type,
+                      label: 'Select the matching category',
+                      collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
+              <%= f.input :date_time_start, label: 'Event start' %>
+              <%= f.input :date_time_end, label: 'Event end' %>
+              <p>URL placeholder DB-field: picture_url</p>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Create event" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
