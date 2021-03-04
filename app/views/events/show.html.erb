@@ -2,7 +2,12 @@
   <div class="headline-flexbox">
     <div><i class="fas fa-backward icon-big"></i></div>
     <div><h1><%= @event.name %></h1></div>
-    <div><i class="fas fa-edit icon-big"></i></div>
+    <div>
+    <i class="fas fa-edit icon-big"></i>
+    <% if policy(@event).edit? %>
+      <%= link_to '📝', edit_event_path(@event) %>
+    <% end %>
+    </div>
   </div>
 
   <h3>Placeholder for image / icon</h3>
