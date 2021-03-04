@@ -17,11 +17,12 @@
                       collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
               <%= f.input :date_time_start, label: 'Event start' %>
               <%= f.input :date_time_end, label: 'Event end' %>
-              <p>URL placeholder DB-field: picture_url</p>
+              <%= f.input :address, placeholder: 'Vapiano Potsdamerplatz Berlin' %>
+              <%= f.input :picture_url, label: 'Add a picture to your event', placeholder: 'www.MyPictureURL.com' %>
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "Create event" %>
+              <%= f.button :submit, "Create event", class: "btn-prim-black" %>
             </div>
           <% end %>
       </div>

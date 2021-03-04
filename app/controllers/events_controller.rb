@@ -21,6 +21,24 @@ class EventsController < ApplicationController
     authorize @event
   end
 
+  def create
+    @event = Event.new(event_params)
+    @event.user = current_user
+    #link API for gecoding
+    # @event.latitude =
+    # @event.longitude =
+    authorize @event
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
+  end
 
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :description, :date_time_start, :date_time_end, :address, :event_type, :picture_url)
+  end
 
 end
