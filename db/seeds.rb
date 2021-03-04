@@ -1,17 +1,38 @@
 require "open-uri"
+require "faker"
+
+# Users
+
+bios_list = [
+  "Hi I am a happy father of 2!",
+  "We love Berlin and the many playgrounds it offers, and we are looking forward to meeting happy people.",
+  "We are young parents in Berlin and love outdoor activities.",
+  "We are parents of 4 and we love everything that has skates.",
+  "I am a single parent new to Berlin and would love to find some parent friends for our kids to play together and also have some interesting conversations with other parents."
+]
+
+email_suffix = 1
+
+puts "Creating 30 users..."
+30.times do
+  user = User.new(
+    email: "test#{email_suffix}@test.com",
+    password: "secure",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    bio: bios_list.sample,
+    date_of_birth: "#{rand(1966..1996)}-#{rand(1..12)}-#{rand(1..28)}",
+    latitude: "#{rand(52.434620..52.562476).round(6)}",
+    longitude: "#{rand(13.280831..13.572970).round(6)}"
+  )
+  user.save
+  User.last == "" ? (puts "Error!") : (puts "Added #{User.last.first_name} #{User.last.last_name}")
+  email_suffix += 1
+end
+puts "Finished!"
+puts
 
 # Events
-
-Event.destroy_all
-
-    # t.string "name"
-    # t.text "description"
-    # t.float "latitude"
-    # t.float "longitude"
-    # t.datetime "date_time_start"
-    # t.datetime "date_time_end"
-    # t.bigint "user_id", null: false
-    # t.string "address"
 
 event_list = [
   [ "Birthday Party on Skates", "We will celebrate the 4th birthday of our son Oscar at the Gleisdreieck Skatepark. Bring your skates and come join us!", 52.493628, 13.375267, "2021-03-15 16:00:00", "2021-03-15 18:00:00", 1, "Möckernstraße 26, 10963 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ],
@@ -37,6 +58,6 @@ event_list.each do | name, description, latitude, longitude, date_time_start, da
   # photo = URI.open(event_image)
   # event.photo.attach(io: photo, filename: 'name.webp', content_type: 'image/webp')
   event.save
-  Event.last == "" ? (puts "Error!") : (puts "Added #{Event.name}")
+  Event.last == "" ? (puts "Error!") : (puts "Added #{Event.last.name}")
 end
 puts "Finished!"
