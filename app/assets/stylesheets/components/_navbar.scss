@@ -1,18 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  height: 300px;
+  height: 80px;
   padding: 0 0 0 0;
   margin: 10px 0 0 0;
   background-color: #CAD8E8;
   .navbar-icon {
-    font-size: 120px;
+    font-size: 32px;
   }
   .navbar-font {
-    font-size: 48px;
+    font-size: 16px;
   }
   .navbar-ul {
-    display: flex !important; 
+    display: flex !important;
     align-items: stretch !important;
     justify-content: space-between !important;
     width: 100% !important;
@@ -28,7 +28,7 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  display: flex !important; 
+  display: flex !important;
   align-items: stretch !important;
   justify-content: space-between !important;
   width: 100% !important;
