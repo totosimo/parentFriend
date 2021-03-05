@@ -33,6 +33,15 @@ end
 puts "Finished!"
 puts
 
+#Chatrooms
+puts "Creating chatrooms..."
+Chatroom.create(name: 'Tom')
+Chatroom.create(name: 'Silvia')
+Chatroom.create(name: 'Sergey')
+Chatroom.create(name: 'Moabit is beste!')
+Chatroom.create(name: 'Picknick in Treptow')
+puts "Finished!"
+
 # Events
 
 event_list = [
