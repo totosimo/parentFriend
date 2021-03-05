@@ -10,7 +10,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
- 
+
   <div class="events-scrollable">
     <% @events.each do |event| %>
       <%= link_to event_path(event), class: "card-event-link" do %>
@@ -21,7 +21,7 @@
               <%= link_to root_path, class: "card-event-link" do %>
                 <i class="fa fa-star card-event-star" aria-hidden="true"></i>
               <% end %>
-              <%= link_to root_path, class: "card-event-link" do %>
+              <%= link_to chatrooms_path, class: "card-event-link" do %>
                 <i class="fas fa-comments card-event-chat" aria-hidden="true"></i>
               <% end %>
               </div>

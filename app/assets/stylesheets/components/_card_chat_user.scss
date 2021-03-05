@@ -12,3 +12,12 @@
     // padding: 5px;
     // border-radius: 20px;
   }
+
+.card-chat-link {
+  text-decoration: none;
+  color: black;
+  &:hover {
+      text-decoration: none;
+      color: black;
+  }
+}
