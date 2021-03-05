@@ -4,13 +4,13 @@
   padding: 4px 20px;
   color: white;
   border-radius: 12px;
-  border-style: solid; 
+  border-style: solid;
   border-width: .5px;
   border-color: black;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 14px;
   &:hover {
-    
+
     background-color:white;
     color: black;
     transition: 0.4s;
@@ -18,18 +18,19 @@
   }
 }
 .btn-prim-white {
+  text-align: center;
   display: inline-block;
   background-color:white;
   padding: 4px 20px;
   color: black;
   border-radius: 12px;
-  border-style: solid; 
+  border-style: solid;
   border-width: .5px;
   border-color: black;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 14px;
   &:hover {
-    
+
     background-color: black;
     color: white;
     transition: 0.4s;
