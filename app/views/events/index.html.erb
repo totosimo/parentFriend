@@ -1,7 +1,7 @@
 <div class="container text-center">
   <h1>Events near me</h1>
   <div class="container text-center">
-  <div id="geocoder" class="geocoder"></div>
+    <div id="geocoder" class="geocoder"></div>
   </div>
   <div class="map-centered">
     <div id="mapevents"
@@ -17,14 +17,20 @@
         <div class="card-event">
           <%= image_tag "default_event.jpg" %>
           <div class="card-event-infos">
-            <%= link_to root_path, class: "card-event-link" do %>
-              <i class="fa fa-star card-event-star" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to root_path, class: "card-event-link" do %>
-              <i class="fas fa-comments card-event-chat" aria-hidden="true"></i>
-            <% end %>
-            <h2 class="text-center"><%= event.name %></h2>
-            <p><%= event.description %></p>
+            <div class="card-event-icons-div">
+              <%= link_to root_path, class: "card-event-link" do %>
+                <i class="fa fa-star card-event-star" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to root_path, class: "card-event-link" do %>
+                <i class="fas fa-comments card-event-chat" aria-hidden="true"></i>
+              <% end %>
+              </div>
+            <div class="card-event-h2-div">
+              <h2 class="text-center"><%= event.name %></h2>
+            </div>
+            <div class="card-event-p-div">
+              <p><%= event.description %></p>
+            </div>
           </div>
         </div>
       <% end %>

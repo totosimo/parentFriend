@@ -18,17 +18,17 @@
   
   .card-event h2 {
     font-size: 16px;
+    height: 18px;
     font-weight: bold;
-    margin: 0;
-    display: flex;
+    overflow: hidden;
   }
   
   .card-event p {
     font-size: 12px;
-    line-height: 1.4;
+    line-height: 12px;
     opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
+    margin-top: 0px;
+    height: 32px;
   }
   
   .card-event .card-event-infos {
@@ -38,14 +38,14 @@
   .card-event-star {
     position: absolute;
     right: 9px;
-    top: 9px;
+    top: 3px;
     box-shadow: none;
   }
 
   .card-event-chat {
     position: absolute;
     right: 32px;
-    top: 9px;
+    top: 3px;
     box-shadow: none;
   }
 
@@ -60,12 +60,33 @@
 
   .events-scrollable {
     height: 240px;
-    overflow: auto;
+    overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 
   .events-scrollable::-webkit-scrollbar {
     display: none;
+  }
+
+  .card-event-h2-div {
+    padding-top: 16px;
+    overflow: hidden;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .card-event-p-div {
+    padding-top: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    height: 24px;
+  }
+
+  .card-event-icons-div {
+    display: flex;
+    padding-top: 6px;
   }
   
