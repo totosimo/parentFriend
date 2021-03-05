@@ -28,7 +28,10 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
     const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl, placeholder: "Find Events", collapsed: false });
-      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+      const geocoderDiv = document.getElementById('geocoder');
+      if (geocoderDiv.innerHTML.length === 0) {
+        geocoderDiv.appendChild(geocoder.onAdd(map));
+      }
     }
   };
   export { initMapbox };
