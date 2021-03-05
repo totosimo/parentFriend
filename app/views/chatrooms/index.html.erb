@@ -5,4 +5,15 @@
     <li> <%= link_to(chatroom.name, chatroom_path(chatroom)) %> </li>
     <% end %>
   </ul>
+  <div class="events-scrollable">
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom), class: "card-chat-link" do %>
+        <div class="card-chat-user">
+          <h2> <%= chatroom.name %> </h2>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
 </div>

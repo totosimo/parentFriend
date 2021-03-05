@@ -15,8 +15,14 @@
               <%= f.input :event_type,
                       label: 'Select the matching category',
                       collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
-              <%= f.input :date_time_start, label: 'Event start' %>
-              <%= f.input :date_time_end, label: 'Event end' %>
+              <div class="row">
+                <div class="w-50">
+                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event start'  %>
+                </div>
+                <div class="w-50">
+                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event end'  %>
+                </div>
+              </div>
               <%= f.input :address, placeholder: 'Vapiano Potsdamerplatz Berlin' %>
               <%= f.input :picture_url, label: 'Add a picture to your event', placeholder: 'www.MyPictureURL.com' %>
             </div>
