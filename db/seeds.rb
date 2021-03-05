@@ -1,6 +1,11 @@
 require "open-uri"
 require "faker"
 
+Message.delete_all
+Event.delete_all
+Chatroom.delete_all
+User.delete_all
+
 # Users
 
 bios_list = [
@@ -59,7 +64,7 @@ event_list = [
 user_id = 1
 puts "Creating #{event_list.length} events..."
 event_list.each do | name, description, event_type, latitude, longitude, date_time_start, date_time_end, address, event_image |
-  event = Event.create(
+  event = Event.create!(
     name: name,
     description: description,
     event_type: event_type,
@@ -67,7 +72,7 @@ event_list.each do | name, description, event_type, latitude, longitude, date_ti
     longitude: longitude,
     date_time_start: date_time_start,
     date_time_end: date_time_end,
-    user_id: user_id,
+    user: User.all.sample,
     address: address
   )
 # Save photos with Active Record to Cloudinary:
