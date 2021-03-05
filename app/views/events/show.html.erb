@@ -14,7 +14,7 @@
     <% if @event.photo.attached? %>
       <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
     <% else %>
-       <%= image_tag "default_event.png" %>
+       <%= image_tag "https://picsum.photos/800/900", class: "event-show-image" %>
     <% end %>
   </div>
 
