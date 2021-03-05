@@ -70,21 +70,11 @@ event_list.each do | name, description, event_type, latitude, longitude, date_ti
     user_id: user_id,
     address: address
   )
-# After Cloudinary is set up uncomment the following:
-  # photo = URI.open(event_image)
-  # event.photo.attach(io: photo, filename: 'name.webp', content_type: 'image/webp')
+# Save photos with Active Record to Cloudinary:
+  photo = URI.open(event_image)
+  event.photo.attach(io: photo, filename: 'name.webp', content_type: 'image/webp')
   event.save
   Event.last == "" ? (puts "Error!") : (puts "Added #{Event.last.name}")
   user_id += 1
 end
 puts "Finished!"
-
-# Event.create(name:"Third", description:"Third best ever", address:"Schwedter Str. 75 Berlin", user: User.last)
-
-# Event.create(name:"Fourth", description:"Fourth best ever", address:"Oranienstr. 25 Berlin", user: User.last)
-
-# Event.create(name:"Fifth", description:"Fifth best ever", address:"Chaussesstr. 125 Berlin", user: User.last)
-
-# Event.create(name:"Sixth", description:"Sixth best ever", address:"Gendarmenmarkt 15 Berlin", user: User.last)
-
-# Event.create(name:"Seventh", description:"Seventh best ever", address:"Rudy-Dutschke Str. 25 Berlin", user: User.last)
