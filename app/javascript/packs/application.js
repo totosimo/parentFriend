@@ -40,3 +40,4 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatpickr();
 });
+// comment
