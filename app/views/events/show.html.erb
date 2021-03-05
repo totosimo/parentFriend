@@ -10,10 +10,14 @@
     </div>
   </div>
 
-  <h3>Placeholder for image / icon</h3>
-  <div>
-  <!-- placeholder for tagline, needs to be added to DB -->
+  <div class="event-show-image">
+    <% if @event.photo.attached? %>
+      <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
+    <% else %>
+       <%= image_tag "default_event.png" %>
+    <% end %>
   </div>
+
   <div>
     <p><%= @event.description %></p>
   </div>
