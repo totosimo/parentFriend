@@ -24,13 +24,15 @@ p {
   align-items: center;
 }
 
-.headline-grid {
-  display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  grid-column-gap: 5px;
-  justify-items: center;
-  align-items: center;
-  list-style: none;
-  padding: 0px;
-  margin-top: 18px;
+.headline-nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 10px;
+//     align-items: center;
+  .middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
