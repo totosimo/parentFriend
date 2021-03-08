@@ -1,0 +1,10 @@
+<h1>My user</h1>
+<%= @user.first_name %>
+<br>
+<%= @user.last_name %>
+<br>
+<%= @user.bio %>
+<br>
+<%#= button_to 'New Chat', {controller: "chatrooms", action: "create", params: @user.id} %>
+<%= link_to 'New Chat', chatrooms_path(user_id: @user.id), method: :post %>
+ <%#{controller: "chatrooms", action: "create", params: @user.id} %>

@@ -13,4 +13,11 @@ class ChatroomPolicy < ApplicationPolicy
     # record.users.include?(user)
     true
   end
+
+  def create?
+    true
+  end
+
+
+
 end
