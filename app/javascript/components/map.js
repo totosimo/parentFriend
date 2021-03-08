@@ -20,11 +20,11 @@ const initCurrentPosition = () => {
 
     if (mapElement) {
         navigator.geolocation.getCurrentPosition((position, error, options) => {
-        const pa = position.coords.latitude;
-        const pb = position.coords.longitude;
-        const str_gsd = `latitude=${pa}&longitude=${pb}`
+            const pa = position.coords.latitude;
+            const pb = position.coords.longitude;
+            const str_gsd = `latitude=${pa}&longitude=${pb}`
 
-        //Call DB to update current_user position values
+            //Call DB to update current_user position values
             Rails.ajax({
                 url: "/meet",
                 dataType: 'json',
@@ -32,29 +32,30 @@ const initCurrentPosition = () => {
                 data: str_gsd,
             })
 
-        //Display the map
-            if (mapElement) { // only build a map if there's a div#map to inject into
-                mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-                    const map = new mapboxgl.Map({
-                    container: 'mapUsers',
-                    style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb',
-                    center: [pb, pa],
-                    zoom: 14
-                });
-                //Add geolocation control to the map
-                map.addControl(
-                    new mapboxgl.GeolocateControl({
+            //Display the map
+            mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+            const map = new mapboxgl.Map({
+                container: 'mapUsers',
+                style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb'
+            });
+            //Add geolocation control to the map
+            map.addControl(
+                new mapboxgl.GeolocateControl({
                     positionOptions: {
-                        enableHighAccuracy: true
+                    enableHighAccuracy: true
                     },
                     trackUserLocation: true
-                    })
-                );
-                //Put a marker on the map
-                const marker = new mapboxgl.Marker()
-                .setLngLat([pb, pa])
-                .addTo(map);
-            };
+                })
+            );
+            const markers = JSON.parse(mapElement.dataset.markers);
+            markers.forEach((marker) => {
+                const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+                new mapboxgl.Marker()
+                    .setLngLat([ marker.lng, marker.lat ])
+                    .setPopup(popup) // add this
+                    .addTo(map);
+            });
+            fitMapToMarkers(map, markers);      
         });
     };
 };
