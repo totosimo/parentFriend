@@ -17,6 +17,11 @@ console.warn(`ERROR(${err.code}): ${err.message}`);
 const initCurrentPosition = () => {
 
     const mapElement = document.getElementById('mapUsers');
+    const fitMapToMarkers = (map, markers) => {
+        const bounds = new mapboxgl.LngLatBounds();
+        markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+        map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    };
 
     if (mapElement) {
         navigator.geolocation.getCurrentPosition((position, error, options) => {
