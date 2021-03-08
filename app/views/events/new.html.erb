@@ -24,7 +24,8 @@
                 </div>
               </div>
               <%= f.input :address, placeholder: 'Vapiano Potsdamer Platz Berlin' %>
-              <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
+              <%= image_tag "", width: 120, class: "hidden", id: "photo-preview" %>
+              <%= f.input :photo, as: :file, input_html: { class: 'hidden d-none', id: 'photo-input' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
             </div>
 
             <div class="form-actions">

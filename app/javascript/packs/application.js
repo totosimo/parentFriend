@@ -31,6 +31,7 @@ import { initFlatpickr } from "../plugins/flatpickr";
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initCurrentPosition } from '../components/map';
 import { initMapbox } from '../plugins/init_mapbox';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   initCurrentPosition();
   initMapbox();
   initFlatpickr();
+  previewImageOnFileSelect();
 });
