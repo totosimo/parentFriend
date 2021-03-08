@@ -2,7 +2,6 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = policy_scope(Chatroom)
-
   end
 
   def show
@@ -10,5 +9,4 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     authorize @chatroom
   end
-
 end
