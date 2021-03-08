@@ -31,11 +31,19 @@ class EventsController < ApplicationController
       render :new
     end
   end
+  def edit
 
+  end
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path
+    authorize @event
+  end
   private
 
   def event_params
     params.require(:event).permit(:name, :description, :date_time_start, :date_time_end, :address, :event_type, :photo)
   end
-
+  
 end
