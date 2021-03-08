@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def update_location
     current_user.update(longitude: params[:longitude], latitude: params[:latitude])
-    # render json: current_user.to_json(only: [:latitude, :longitude])
+    render json: current_user.to_json(only: [:latitude, :longitude])
   end
 
   private
