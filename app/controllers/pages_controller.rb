@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def meet
+    @users = User.all
   end
 
   def update_location
