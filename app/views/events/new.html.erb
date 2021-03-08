@@ -24,7 +24,7 @@
                 </div>
               </div>
               <%= f.input :address, placeholder: 'Vapiano Potsdamer Platz Berlin' %>
-              <%= f.input :photo, as: :file, label: 'Add a picture to your event' %>
+              <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
             </div>
 
             <div class="form-actions">
