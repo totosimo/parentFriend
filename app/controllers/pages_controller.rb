@@ -19,6 +19,7 @@ class PagesController < ApplicationController
       # filter other nearby users' location as described in this method
       # markers are generated and placed on the map
       # uses popups on the user markers on the map to allow to see bio and initiate  chat with users
+      # use geocoded by :lat and long
     end
   end
 

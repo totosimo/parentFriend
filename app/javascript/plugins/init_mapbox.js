@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
-  const mapElement = document.getElementById('mapevents');
+  const mapElement = document.getElementById('mapEvents');
 
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
@@ -14,7 +14,7 @@ const initMapbox = () => {
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
-      container: 'mapevents',
+      container: 'mapEvents',
       style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb'
     });
     //Add geolocation control to the map
