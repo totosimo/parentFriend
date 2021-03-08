@@ -1,9 +1,12 @@
 <div class="container">
+  <ul class="headline-grid">
+    <li><%= link_to "Back", :back %></li>
+    <li><h2>Edit <%= resource_name.to_s.humanize %></h2></li>
+    <li>edit</li>
+  </ul>
   <div class="row">
     <div class="col-xs-12 w-100">
       <div class="form">
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
 
@@ -42,5 +45,4 @@
     </div>
   </div>
   <%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn-prim-black w-100" %>
-  <%= link_to "Back", :back %></p>
 </div>

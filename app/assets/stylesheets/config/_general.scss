@@ -23,3 +23,14 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+
+.headline-grid {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
+  align-items: center;
+  list-style: none;
+  padding: 0px;
+  margin-top: 18px;
+}
