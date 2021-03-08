@@ -16,7 +16,7 @@ console.warn(`ERROR(${err.code}): ${err.message}`);
 //Obtain current position of the client
 const initCurrentPosition = () => {
 
-    const mapElement = document.getElementById('mapusers');
+    const mapElement = document.getElementById('mapUsers');
 
     if (mapElement) {
         navigator.geolocation.getCurrentPosition((position, error, options) => {
@@ -26,7 +26,7 @@ const initCurrentPosition = () => {
 
         //Call DB to update current_user position values
             Rails.ajax({
-                url: "/main",
+                url: "/meet",
                 dataType: 'json',
                 type: "post",
                 data: str_gsd,
@@ -36,12 +36,20 @@ const initCurrentPosition = () => {
             if (mapElement) { // only build a map if there's a div#map to inject into
                 mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
                     const map = new mapboxgl.Map({
-                    container: 'mapusers',
+                    container: 'mapUsers',
                     style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb',
                     center: [pb, pa],
                     zoom: 14
                 });
-
+                //Add geolocation control to the map
+                map.addControl(
+                    new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    trackUserLocation: true
+                    })
+                );
                 //Put a marker on the map
                 const marker = new mapboxgl.Marker()
                 .setLngLat([pb, pa])
