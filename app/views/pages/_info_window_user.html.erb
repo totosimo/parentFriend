@@ -2,7 +2,7 @@
     <div class="card-event-icons-div text-left pl-4">
         <p><strong><%= user.first_name %> <%= user.last_name %></strong>
             <br>
-            <%= link_to main_path, class: "card-popup-link" do %>
+            <%= link_to chatrooms_path(user_id: user.id), method: :post, class: "card-popup-link" do %>
                 <i class="fas fa-comments text-center" aria-hidden="true"></i>
             <% end %>
         </p>
