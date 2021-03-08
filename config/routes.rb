@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/main', to: 'pages#main'
   get '/meet', to: 'pages#meet'
   post '/meet', to: 'pages#update_location'
+  resources :users, only: [:index, :show]
   resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: [:create]
   end
