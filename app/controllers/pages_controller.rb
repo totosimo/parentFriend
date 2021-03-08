@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       # current_user does the same streaming of their own location, and uses .near or similar method of Mapbox to 
       # filter other nearby users' location as described in this method
       # markers are generated and placed on the map
-      # uses popups on the user markers on the map to allow to see bio and initiate  chat with users
+      # uses popups on the user markers on the map to allow to see bio and initiate chat with users
       # DONE: use geocoded by :lat and long
       @users = User.all
       @markersUsers = @users.geocoded.map do |user|

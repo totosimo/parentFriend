@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import Rails from '@rails/ujs';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 //Enable High Accuracy
 const options = {
@@ -69,7 +70,7 @@ const initCurrentPosition = () => {
 export { initCurrentPosition };
 
 
-
+//HOW TO DETERMINE CURRENT POSITION WITH PURE JAVASCRIPT
 // import mapboxgl from 'mapbox-gl';
 // import Rails from '@rails/ujs';
 
