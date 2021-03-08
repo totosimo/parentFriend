@@ -20,7 +20,8 @@ class PagesController < ApplicationController
         {
           lat: user.latitude,
           lng: user.longitude,
-          infoWindow: render_to_string(partial: "info_window_user", locals: { user: user })
+          infoWindow: render_to_string(partial: "info_window_user", locals: { user: user }),
+          image_url: helpers.asset_url('user.webp')
         }
       end
   end
