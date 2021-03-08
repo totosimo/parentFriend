@@ -15,8 +15,6 @@
     <% @events.each do |event| %>
       <%= link_to event_path(event), class: "card-event-link" do %>
         <div class="card-event">
-
-
           <div>
             <% if event.photo.attached? %>
               <%= cl_image_tag event.photo.key, class: "event-index-image" %>
@@ -24,7 +22,6 @@
                <%= image_tag "https://picsum.photos/800/900", class: "event-index-image" %>
             <% end %>
           </div>
-
           <div class="card-event-infos">
             <div class="card-event-icons-div">
               <%= link_to root_path, class: "card-event-link" do %>
