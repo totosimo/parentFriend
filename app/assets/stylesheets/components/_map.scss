@@ -24,3 +24,10 @@
     margin-top: 13px;
     margin-bottom: 13px;
 }
+
+.mapboxgl-ctrl {
+    border-radius: 13px;
+    clear: both;
+    pointer-events: auto;
+    transform: translate(0);
+}
