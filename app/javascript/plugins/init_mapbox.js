@@ -44,7 +44,7 @@ const initMapbox = () => {
     });
     fitMapToMarkers(map, markers);
     const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl, placeholder: "Find Events", collapsed: false });
+      mapboxgl: mapboxgl, placeholder: "Find Events", collapsed: false, marker: false });
       const geocoderDiv = document.getElementById('geocoder');
       if (geocoderDiv.innerHTML.length === 0) {
         geocoderDiv.appendChild(geocoder.onAdd(map));
