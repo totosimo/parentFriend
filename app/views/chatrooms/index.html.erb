@@ -1,7 +1,7 @@
 <div class="container">
   <h1>My chats</h1>
   <div>
-    <% @chatrooms.each do |chatroom| %>
+    <% @my_chatrooms.each do |chatroom| %>
       <%= link_to chatroom_path(chatroom), class: "card-chat-link" do %>
         <div class="card-chat-user">
           <h4> <%= chatroom.name %> </h4>
