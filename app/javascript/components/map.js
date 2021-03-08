@@ -18,35 +18,37 @@ const initCurrentPosition = () => {
 
     const mapElement = document.getElementById('mapusers');
 
-    navigator.geolocation.getCurrentPosition((position, error, options) => {
-    const pa = position.coords.latitude;
-    const pb = position.coords.longitude;
-    const str_gsd = `latitude=${pa}&longitude=${pb}`
+    if (mapElement) {
+        navigator.geolocation.getCurrentPosition((position, error, options) => {
+        const pa = position.coords.latitude;
+        const pb = position.coords.longitude;
+        const str_gsd = `latitude=${pa}&longitude=${pb}`
 
-    //Call DB to update current_user position values
-        Rails.ajax({
-            url: "/main",
-            dataType: 'json',
-            type: "post",
-            data: str_gsd,
-        })
+        //Call DB to update current_user position values
+            Rails.ajax({
+                url: "/main",
+                dataType: 'json',
+                type: "post",
+                data: str_gsd,
+            })
 
-    //Display the map
-        if (mapElement) { // only build a map if there's a div#map to inject into
-            mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-                const map = new mapboxgl.Map({
-                container: 'mapusers',
-                style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb',
-                center: [pb, pa],
-                zoom: 14
-            });
+        //Display the map
+            if (mapElement) { // only build a map if there's a div#map to inject into
+                mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+                    const map = new mapboxgl.Map({
+                    container: 'mapusers',
+                    style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb',
+                    center: [pb, pa],
+                    zoom: 14
+                });
 
-            //Put a marker on the map
-            const marker = new mapboxgl.Marker()
-            .setLngLat([pb, pa])
-            .addTo(map);
-        };
-    });
+                //Put a marker on the map
+                const marker = new mapboxgl.Marker()
+                .setLngLat([pb, pa])
+                .addTo(map);
+            };
+        });
+    };
 };
 
 //Export Function
