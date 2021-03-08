@@ -1,0 +1,48 @@
+.scrollable {
+    height: 240px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-popup {
+    overflow: hidden;
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    border-radius: 13px;
+    position: relative;
+  }
+
+  .card-popup p {
+    font-size: 12px;
+    line-height: 16px;
+    opacity: .7;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    height: 64px;
+  }
+
+  .card-popup h2 {
+    font-size: 16px;
+    height: 18px;
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+  .card-popup-link {
+    text-decoration: none;
+    color: black;
+    line-height: 32px;
+    &:hover {
+        text-decoration: none;
+        color: black;
+    }
+  }
