@@ -18,10 +18,14 @@
           <div class="form-inputs">
             <div class="userprofile-avatar">
               <div>
-                <%= image_tag "", width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
+                <% if @user.photo.attached? %>
+                  <%= cl_image_tag @user.photo.key, class: "hidden rounded-circle border border-dark avatar-img" %>
+                <% else %>
+                  <%= image_tag "/assets/default_avatar.png", width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
+                <% end %>
               </div>
               <div>
-              <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '_' %>
+                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '_' %>
               </div>
             </div>
             <%= f.input :first_name %>
