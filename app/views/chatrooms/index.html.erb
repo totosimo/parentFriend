@@ -1,15 +1,24 @@
 <div class="container">
   <h1>My chats</h1>
   <div>
-    <% @my_chatrooms.each do |chatroom| %>
-      <%= link_to chatroom_path(chatroom), class: "card-chat-link" do %>
+    <%# @my_chatrooms.each do |chatroom| %>
+      <%#= link_to chatroom_path(chatroom), class: "card-chat-link" do %>
+        <%# <div class="card-chat-user"> %>
+          <%# <h4> <%= chatroom.name </h4> %>
+        <%# </div> %>
+      <%# end %>
+    <%# end %>
+
+    <% @my_chat_users.each do |entry| %>
+      <%= link_to chatroom_path(entry[:chat]), class: "card-chat-link" do %>
         <div class="card-chat-user">
-          <h4> <%= chatroom.name %> </h4>
+          <% if entry[:other_u].present? %>
+            <h4> <%= entry[:other_u].first_name %> </h4>
+          <% else %>
+            <h4> <%= entry[:chat].name %> </h4>
+          <% end %>
         </div>
       <% end %>
     <% end %>
-    <br>
-    <%# button_to 'New Chat', action: 'create' %>
   </div>
-
 </div>
