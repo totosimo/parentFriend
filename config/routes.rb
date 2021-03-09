@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+  get 'bookings/show'
+  get 'bookings/destroy'
+  get 'bookings/update'
+  get 'bookings/edit'
+  get 'bookings/new'
+  get 'bookings/create'
   devise_for :users
   root to: 'pages#home'
   get '/main', to: 'pages#main'
@@ -8,5 +15,10 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: [:create]
   end
-  resources :events
+  
+  resources :events do
+    resources :bookings, only: [:create]
+  end
+
+  resources :bookings, only: [:index, :show, :destroy]
 end

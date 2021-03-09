@@ -40,6 +40,15 @@
   <div><h2>Address:</h2>
    <p><%= @event.address %></p>
   </div>
+  <% if @event.bookings.length != 0 %>
+    <div><h2>Attendees:</h2>
+    <% @event.bookings.each do |booking| %>
+      <%= link_to user_path(booking.user) do %>
+        <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
      <%= link_to events_path, class: "icon-links" do %>
      <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
     <% end %>
