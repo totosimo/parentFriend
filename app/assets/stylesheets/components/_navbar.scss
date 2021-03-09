@@ -2,12 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #184d475b;
+  // background-color: #184d475b; is transparent so content disturbs
+  background-color: rgb(171, 185, 182);
   position: fixed;
   height: 70px;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10000;
 }
 
 .nav-icon {
