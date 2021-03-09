@@ -12,9 +12,9 @@
 @import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
+@import "config/general";
 @import "components/icons";
 @import "components/index";
-@import "config/general";
 @import "pages/devise_registrations_edit";
 @import "pages/events_index";
 @import "pages/events_show";
