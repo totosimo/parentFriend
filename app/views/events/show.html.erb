@@ -43,7 +43,9 @@
   <% if @event.bookings.length != 0 %>
     <div><h2>Attendees:</h2>
     <% @event.bookings.each do |booking| %>
-      <p><%= booking.user.email %></p>
+      <%= link_to user_path(booking.user) do %>
+        <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <% end %>
     <% end %>
     </div>
   <% end %>

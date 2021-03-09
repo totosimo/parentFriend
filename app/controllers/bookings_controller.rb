@@ -17,13 +17,17 @@ class BookingsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @booking = Booking.new
-    @booking.user = current_user
-    @booking.event = @event
     authorize @booking
-    if @booking.save!
-      redirect_to booking_path(@booking)
+    if event_booked?(@event) == 0
+      @booking.user = current_user
+      @booking.event = @event
+      if @booking.save!
+        redirect_to booking_path(@booking), notice: "Your booking has been successfully created"
+      else
+        redirect_to event_path(@event), notice: "Booking aborted, the event has been cancelled by the host"
+      end
     else
-      render event_path(@event)
+      redirect_to event_path(@event), notice: "You are already attending this event!"
     end
   end
 
@@ -31,5 +35,13 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.where(user: current_user).find(params[:id])
+  end
+
+  def event_booked?(ev)
+    found = 0
+    ev.bookings.each do |booking|
+      found = 1 if booking.user == current_user
+    end
+    return found
   end
 end
