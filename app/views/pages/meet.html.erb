@@ -1,4 +1,4 @@
-<h3>ParentFriends Around Me</h3>
+<!-- <h3>ParentFriends Around Me</h3>
 <hr>
 <div class="container">
     <div id="mapUsers"
@@ -6,4 +6,27 @@
         data-markers="<%= @markersUsers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+</div> -->
+
+<div class="container">
+  <div class="headline-nav">
+    <div class="left">
+    </div>
+    <div class="middle">
+      <h2>ParentFriends nearby</h2>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <div id="geocoder" class="geocoder"></div>
+  <div class="map-centered">
+    <div id="mapUsers"
+      class="events-map-display"
+      data-markers="<%= @markersUsers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
