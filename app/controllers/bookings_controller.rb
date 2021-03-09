@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to events_path
   end
 
   def create
@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
       @booking.user = current_user
       @booking.event = @event
       if @booking.save!
-        redirect_to booking_path(@booking), notice: "Your booking has been successfully created"
+        redirect_to event_path(@event), notice: "Your booking has been successfully created"
       else
         redirect_to event_path(@event), notice: "Booking aborted, the event has been cancelled by the host"
       end

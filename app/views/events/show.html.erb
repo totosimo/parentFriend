@@ -43,8 +43,16 @@
   <% if @event.bookings.length != 0 %>
     <div><h2>Attendees:</h2>
     <% @event.bookings.each do |booking| %>
-      <%= link_to user_path(booking.user) do %>
-        <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <%= link_to user_path(booking.user), class: "text-decoration-none text-primary" do %>
+        <% if booking.user.photo.attached? %>
+          <p><%= cl_image_tag booking.user.photo.key, width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
+        <% else %>
+          <p><%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
+        <% end %>
+          <% if policy(booking).destroy? %>
+            <%= link_to "Leave", booking_path(booking), class: "text-decoration-none text-white btn-sm btn-warning", method: "delete" %>
+          <% end %>
+        </p>
       <% end %>
     <% end %>
     </div>
