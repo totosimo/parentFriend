@@ -1,25 +1,38 @@
 // Specific CSS for your home-page
 
 .container-first {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 15px;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
+  background-position: bottom;
   background-size: cover;
-  background-image: url('https://images.unsplash.com/photo-1600880291298-8481039492bc?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=668&q=80');
-}
-
-.center {
+  background-image: image-url('background.JPG'); 
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  height: 90%;
+  justify-content: space-between;
+  flex-direction: column;
+  
+  
 }
-.login-logout {
-  display: flex;
-  justify-content: space-around;
+.container-second {
+  height: 10vh;
+  background-color: rgb(246, 248, 248);
+}
+.headline {
+  font-size: 40px;
 }
 
 .button {
-  position: sticky;
-  bottom: 1rem;
+  
+  display: flex;
+  justify-content: flex-end;
 }
+// .center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 18px;
+//   height: 90%;
+// }
+
