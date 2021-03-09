@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -18,5 +19,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.where(user: current_user).find(params[:id])
   end
 end
