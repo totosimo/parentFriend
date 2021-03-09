@@ -1,29 +1,32 @@
-<h1>All my bookings</h1>
-<% current_user.bookings.each do |booking| %>
-  <div class="card-event">
-          <div>
-            <% if booking.event.photo.attached? %>
-              <%= cl_image_tag booking.event.photo.key, class: "event-index-image" %>
-            <% else %>
-               <%= image_tag "/assets/default_event.png", class: "event-index-image" %>
-            <% end %>
-          </div>
-          <div class="card-event-infos">
-            <div class="card-event-icons-div">
-              <%#= link_to event_bookings_path(event), class: "card-event-link", method: "post" do %>
-                <i class="fa fa-star card-event-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
-              <%# end %>
-              <%#= link_to chatrooms_path, class: "card-event-link" do %>
-                <i class="fas fa-comments card-event-chat" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with event participants"></i>
-              <%# end %>
-              </div>
-            <div class="card-event-h2-div">
-              <h2 class="text-center"><%= booking.event.name %></h2>
+<div class="container text-center">
+    <h1>All my bookings</h1>
+    <% current_user.bookings.each do |booking| %>
+        <%= link_to event_path(booking.event), class: "card-event-link" do %>
+            <div class="card-event">
+            <div>
+                <% if booking.event.photo.attached? %>
+                <%= cl_image_tag booking.event.photo.key, class: "event-index-image" %>
+                <% else %>
+                <%= image_tag "/assets/default_event.png", class: "event-index-image" %>
+                <% end %>
             </div>
-            <div class="card-event-p-div">
-              <p><%= booking.event.description %></p>
+            <div class="card-event-infos">
+                <div class="card-event-icons-div">
+                <%= link_to event_bookings_path(booking.event), class: "card-event-link card-op", method: "post" do %>
+                    <i class="fa fa-star card-event-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                <% end %>
+                <%= link_to chatrooms_path, class: "card-event-link card-op" do %>
+                    <i class="fas fa-comments card-event-chat" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with event participants"></i>
+                <% end %>
+                </div>
+                <div class="card-event-h2-div">
+                <h2 class="text-center"><%= booking.event.name %></h2>
+                </div>
+                <div class="card-event-p-div">
+                <p><%= booking.event.description %></p>
+                </div>
             </div>
-          </div>
-        </div>
-<% end %>
-
+            </div>
+        <% end %>
+    <% end %>
+</div>

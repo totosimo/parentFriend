@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to events_path
+    redirect_to bookings_path
   end
 
   def create
