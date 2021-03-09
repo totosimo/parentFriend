@@ -1,11 +1,11 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom)
-    @my_chatrooms = current_user.chatrooms
-    @other_users = @my_chatrooms.map { |chat| chat.users.reject { |user| user.eql?(current_user) } }
+    my_chatrooms = current_user.chatrooms
+    other_users = my_chatrooms.map { |chat| chat.users.reject { |user| user.eql?(current_user) } }
     @my_chat_users = []
-    @my_chatrooms.each_with_index do |chat, i|
-      @my_chat_users << { chat: chat, other_u: @other_users[i][0] }
+    my_chatrooms.each_with_index do |chat, i|
+      @my_chat_users << { chat: chat, other_u: other_users[i][0] }
     end
     @my_chat_users
   end
@@ -20,15 +20,29 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(name: "#{current_user.first_name} - #{User.find(params[:user_id]).first_name}")
-    authorize @chatroom
-    @user_chatroom = UserChatroom.new(user: current_user, chatroom: @chatroom)
-    @user_chatroom_two = UserChatroom.new(user: User.find(params[:user_id]), chatroom: @chatroom)
-    if @chatroom.save && @user_chatroom.save && @user_chatroom_two.save
+    cu = current_user
+    u = User.find(params[:user_id])
+    s_one = "#{u.id}-#{cu.id}"
+    s_two = "#{cu.id}-#{u.id}"
+    @chatroom = Chatroom.where("name like ? OR name like ?", s_one, s_two).first
+    if @chatroom.present?
+      #check for existing chatroom and redirect to it
+      authorize @chatroom
       redirect_to chatroom_path(@chatroom)
     else
-      render 'users/show'
+      #else create chatroom
+      @chatroom = Chatroom.new(name: "#{cu.id}-#{u.id}")
+      authorize @chatroom
+      @user_chatroom = UserChatroom.new(user: cu, chatroom: @chatroom)
+      @user_chatroom_two = UserChatroom.new(user: u, chatroom: @chatroom)
+      if @chatroom.save && @user_chatroom.save && @user_chatroom_two.save
+        redirect_to chatroom_path(@chatroom)
+      else
+        render 'users/show'
+      end
+
     end
+
   end
 
 end

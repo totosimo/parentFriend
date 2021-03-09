@@ -5,6 +5,4 @@
 <br>
 <%= @user.bio %>
 <br>
-<%#= button_to 'New Chat', {controller: "chatrooms", action: "create", params: @user.id} %>
 <%= link_to 'New Chat', chatrooms_path(user_id: @user.id), method: :post %>
- <%#{controller: "chatrooms", action: "create", params: @user.id} %>
