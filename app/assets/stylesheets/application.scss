@@ -12,8 +12,9 @@
 @import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
+@import "components/icons";
 @import "components/index";
-@import "pages/index";
 @import "config/general";
 @import "pages/events_index";
 @import "pages/events_show";
+@import "pages/index";
