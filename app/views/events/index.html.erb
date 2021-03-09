@@ -19,7 +19,7 @@
             <% if event.photo.attached? %>
               <%= cl_image_tag event.photo.key, class: "event-index-image" %>
             <% else %>
-               <%= image_tag "https://picsum.photos/800/900", class: "event-index-image" %>
+               <%= image_tag "/assets/default_event.png", class: "event-index-image" %>
             <% end %>
           </div>
           <div class="card-event-infos">

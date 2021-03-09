@@ -10,16 +10,25 @@ p {
   font-size: 16px;
 }
 
-.icon-big {
-  font-size: 22px;
-}
-
-.icon-small {
-  font-size: 18px;
-}
-
 .headline-flexbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.headline-nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 10px;
+  // align-items: center;
+  // height: auto;
+  .middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  // height: auto;
+  }
+}
+
