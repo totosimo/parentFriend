@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode, if: -> (user){ user.latitude.present? and user.latitude_changed? and user.longitude.present? and user.longitude_changed? }
-  has_many :user_chatrooms
+  has_many :user_chatrooms, :bookings
   has_many :chatrooms, through: :user_chatrooms
 end
