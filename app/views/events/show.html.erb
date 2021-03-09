@@ -15,7 +15,7 @@
       <i class="fas fa-trash-alt" aria-hidden="true"></i>
       <% end %>
     <% end %>
-    
+
   </div>
 
     <div><h1><%= @event.name %></h1></div>
@@ -25,7 +25,7 @@
     <% if @event.photo.attached? %>
       <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
     <% else %>
-       <%= image_tag "https://picsum.photos/800/900", class: "event-show-image" %>
+       <%= image_tag "/assets/default_event.png", class: "event-show-image" %>
     <% end %>
 
    <div><p><%= @event.description %></p></div>
