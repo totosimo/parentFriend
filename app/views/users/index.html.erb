@@ -1,4 +1,15 @@
-<h1>All my users</h1>
+<div class="container">
+  <div class="headline-nav">
+    <div class="left">
+    </div>
+    <div class="middle">
+      <h2>My ParentFriends</h2>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+</div>
+
 <ul>
 <% @users.each do |user| %>
   <li><%= link_to user.first_name, user_path(user) %></li>
