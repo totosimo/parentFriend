@@ -21,14 +21,13 @@ p {
   justify-content: space-between;
   position: relative;
   padding-top: 10px;
-  // align-items: center;
+  align-items: center;
   // height: auto;
   .middle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    // position: absolute;
+    // left: 50%;
+    // transform: translateX(-50%);
     text-align: center;
-  // height: auto;
   }
 }
 
