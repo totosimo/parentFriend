@@ -1,24 +1,24 @@
 <div class="nav-flexbox">
   <div class="text-center pl-2 pr-2">
-    <%= link_to main_path, class: "nav-link" do %>
-      <i class="fas fa-home nav-icon"></i>
+    <%= link_to main_path, class: "nav-link #{action_name == 'main' ? 'active' : ' '}" do %>
+      <i class="fas fa-home nav-icon "></i>
     <% end %>
   </div>
 
   <div class="text-center pr-2">
-    <%= link_to events_path, class: "nav-link" do %>
+    <%= link_to events_path, class: "nav-link #{controller_name == 'events' && action_name == 'index' ? 'active' : ' '}" do %>
       <i class="fas fa-calendar-day nav-icon"></i>
     <% end %>
   </div>
 
   <div class="text-center">
-    <%= link_to main_path, class: "nav-link" do %>
+    <%= link_to users_path, class: "nav-link #{controller_name == 'users' && action_name == 'index' ? 'active' : ' '}" do %>
       <i class="fas fa-user-friends nav-icon"></i>
     <% end %>
   </div>
 
   <div class="text-center pr-2">
-    <%= link_to chatrooms_path, class: "nav-link" do %>
+    <%= link_to chatrooms_path, class: "nav-link #{controller_name == 'chatrooms' && action_name == 'index' ? 'active' : ' '}" do %>
       <i class="fas fa-comments nav-icon"></i>
     <% end %>
   </div>
