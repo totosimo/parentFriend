@@ -19,7 +19,7 @@
             <div class="userprofile-avatar">
               <div>
                 <% if @user.photo.attached? %>
-                  <%= cl_image_tag @user.photo.key, class: "hidden rounded-circle border border-dark avatar-img" %>
+                  <%= cl_image_tag @user.photo.key, width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img" %>
                 <% else %>
                   <%= image_tag "/assets/default_avatar.png", width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
                 <% end %>
