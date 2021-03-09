@@ -6,26 +6,26 @@
           <%= simple_form_for(@event) do |f| %>
             <div class="form-inputs">
               <%= f.input :name,
-                      label: 'Give a short descriptive name to your event',
+                      label: 'Give a short name to your event',
                       autofocus: true,
-                      placeholder: 'Skateboarding session' %>
+                      placeholder: 'Skateboarding in the Park' %>
               <%= f.input :description,
                       label: 'Add a catchy description',
-                      placeholder: 'Let’s get our skateboards and have some fun in the sun! Don\'t forget to bring the necessary protection. And also enough water - looks like it is gonna be hot ;)' %>
+                      placeholder: 'Let’s get our skateboards and have some fun in the sun! Don\'t forget to bring the necessary sun protection. And also enough water - looks like it is gonna be very warm!' %>
               <%= f.input :event_type,
-                      label: 'Select the matching category',
+                      label: 'Select the category',
                       collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
-              <div class="row">
-                <div class="w-50">
-                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event start'  %>
+                <div class="row-two">
+                 <div class="w-50">
+                   <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event start'  %>
+                 </div>
+                 <div class="w-50">
+                   <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event end'  %>
+                 </div>
                 </div>
-                <div class="w-50">
-                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event end'  %>
-                </div>
-              </div>
-              <%= f.input :address, placeholder: 'Vapiano Potsdamer Platz Berlin' %>
+              <%= f.input :address, placeholder: 'Potsdamer Platz' %>
               <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
-              <%= image_tag "", width: 120, class: "hidden", id: "photo-preview" %>
+              <%= image_tag "", width: 130, class: "hidden", id: "photo-preview" %>
             </div>
 
             <div class="form-actions">
