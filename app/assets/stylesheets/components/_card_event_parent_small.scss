@@ -16,12 +16,6 @@
     object-fit: cover;
   }
 
-  // .card-event img {
-  //   height: 100%;
-  //   width: 90px;
-  //   object-fit: cover;
-  // }
-
   .card-event h2 {
     font-size: 16px;
     height: 18px;
@@ -73,6 +67,13 @@
 
   .events-scrollable {
     height: 298px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .users-scrollable {
+    height: 342px;
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;

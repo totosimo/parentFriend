@@ -29,4 +29,29 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
+  <div class="users-scrollable">
+    <% @users.each do |user| %>
+      <%= link_to user_path(user), class: "card-event-link" do %>
+        <div class="card-event">
+          <div>
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "event-index-image" %>
+            <% else %>
+               <%= image_tag "/assets/default_avatar.png", class: "event-index-image" %>
+            <% end %>
+          </div>
+          <div class="card-event-infos">
+<!-- insert star and chat bubble here lines 26-33 from event index-->
+            <div class="card-event-h2-div">
+              <h2 class="text-center"><%= user.first_name %> <%= user.last_name %></h2>
+            </div>
+            <div class="card-event-p-div">
+              <p><%= user.bio %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
