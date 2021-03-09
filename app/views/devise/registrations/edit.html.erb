@@ -25,7 +25,7 @@
                 <% end %>
               </div>
               <div>
-                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '_' %>
+                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '&nbsp;'.html_safe %>
               </div>
             </div>
             <%= f.input :first_name %>
