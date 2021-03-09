@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: [:create]
   end
-  resources :events
+  
+  resources :events do
+    resources :bookings, only: [:new, :create]
+  end
+
+  resources :bookings, only: [:index, :show, :destroy, :update, :edit]
 end
