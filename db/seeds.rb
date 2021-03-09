@@ -6,7 +6,7 @@ Event.delete_all
 Chatroom.delete_all
 User.delete_all
 
-# Users
+# Users #######################################
 
 bios_list = [
   "Hi I am a happy father of 2!",
@@ -38,7 +38,7 @@ end
 puts "Finished!"
 puts
 
-#Chatrooms
+# Chatrooms  #######################################
 # puts "Creating chatrooms..."
 # Chatroom.create(name: 'Tom')
 # Chatroom.create(name: 'Silvia')
@@ -47,7 +47,7 @@ puts
 # Chatroom.create(name: 'Picknick in Treptow')
 # puts "Finished!"
 
-# Events
+# Events #######################################
 
 event_list = [
   [ "Birthday Party on Skates", "We will celebrate the 4th birthday of our son Oscar at the Gleisdreieck Skatepark. Bring your skates and come join us!", "Sports","2021-03-15 16:00:00", "2021-03-15 18:00:00", "Möckernstraße 26, 10963 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ],
