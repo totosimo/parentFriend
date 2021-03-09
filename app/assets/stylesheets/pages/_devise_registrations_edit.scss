@@ -1,0 +1,15 @@
+
+.userprofile-avatar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 10px;
+//     align-items: center;
+  .middle {
+    position: absolute;
+    left: 57%;
+    top: 17px;
+    font-size: 22px;
+    // transform: translateX(-50%);
+  }
+}

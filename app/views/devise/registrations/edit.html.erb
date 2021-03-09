@@ -13,9 +13,13 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
-            <div>
-              <%= image_tag "", width: 136, height: 136, class: "hidden rounded-circle border border-dark", id: "photo-preview" %>
-              <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
+            <div class="userprofile-avatar">
+              <div>
+                <%= image_tag "", width: 136, height: 136, class: "hidden rounded-circle border border-dark", id: "photo-preview" %>
+              </div>
+              <div>
+              <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '_', class: "hidden" %>
+              </div>
             </div>
             <%= f.input :first_name %>
             <%= f.input :last_name %>
