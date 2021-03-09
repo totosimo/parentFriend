@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>#<%= @chatroom.name %></h1>
-  <p> <%= link_to 'Back', chatrooms_path %></p>
+  <h1> <%= @name %> </h1>
+  <p> <%= link_to 'Back', chatrooms_path %> </p>
   <div class = "messages-scrollable" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
