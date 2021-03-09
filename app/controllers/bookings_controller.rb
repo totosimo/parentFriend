@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.event = @event
     authorize @booking
-    if booking.save!
+    if @booking.save!
       redirect_to booking_path(@booking)
     else
       render event_path(@event)
