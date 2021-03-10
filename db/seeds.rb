@@ -19,9 +19,10 @@ bios_list = [
   "Me and my wife are both Le Wagon fullstack developer alumni and we are seeking other devs to hang out and tech talk while our kids play in the playground."
 ]
 
+usercount = 10
 email_suffix = 1
-puts "Creating 30 users..."
-30.times do
+puts "Creating #{usercount} users..."
+usercount.times do
   user = User.new(
     email: "test#{email_suffix}@test.com",
     password: "secure",
