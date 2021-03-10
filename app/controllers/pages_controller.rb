@@ -9,13 +9,7 @@ class PagesController < ApplicationController
   end
 
   def meet
-      # each user updates and saves their current location in the DB with watchLocation
-      # current_user does the same streaming of their own location, and uses .near or similar method of Mapbox to 
-      # filter other nearby users' location as described in this method
-      # DONE markers are generated and placed on the map
-      # uses popups on the user markers on the map to allow to see bio and initiate chat with users
-      # DONE: use geocoded by :lat and long
-      @users = User.all
+      @users = User.near(current_user, 3)
       @markersUsers = @users.geocoded.map do |user|
         {
           lat: user.latitude,
