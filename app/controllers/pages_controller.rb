@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def meet
-      @users = User.near(current_user, 1)
+      @users = User.near(current_user, 3)
       @markersUsers = @users.geocoded.map do |user|
         {
           lat: user.latitude,
