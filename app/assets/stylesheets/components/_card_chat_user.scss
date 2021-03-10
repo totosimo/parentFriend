@@ -1,3 +1,11 @@
+.chats-scrollable {
+  overflow-y: auto;
+}
+
+.chats-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
 .messages-scrollable {
   flex-grow: 1;
   // max-height: 550px;
@@ -5,8 +13,8 @@
 }
 
 .messages-scrollable::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
 .card-chat-user {
     overflow: hidden;
