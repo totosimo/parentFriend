@@ -33,3 +33,5 @@ yarn-debug.log*
 *.swp
 .DS_Store
 
+# Ignore Silvia recognition file for config/appliration.rb SSL hotfix
+my_name_is_silvia.rb

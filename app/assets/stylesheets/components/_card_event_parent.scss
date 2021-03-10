@@ -16,12 +16,6 @@
     object-fit: cover;
   }
 
-  // .card-event img {
-  //   height: 100%;
-  //   width: 90px;
-  //   object-fit: cover;
-  // }
-
   .card-event h2 {
     font-size: 16px;
     height: 18px;
@@ -63,7 +57,7 @@
         color: black;
     }
   }
-  
+
   .card-op {
     opacity: 0.7;
     &:hover {
@@ -72,7 +66,21 @@
   }
 
   .events-scrollable {
-    height: 280px;
+    height: 298px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .users-scrollable {
+    height: 342px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .myfriends-scrollable {
+    height: 675px;
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
