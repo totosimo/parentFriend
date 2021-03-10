@@ -21,48 +21,44 @@ if Rails.env.production?
   usercount = 100
 else
   puts "Did not detect production environment."
-  usercount = 20
+  usercount = 50
 end
 
 # Calls random user profile picture API and parses json response into
 # an array of picture URLs
 image_api_url = "https://randomuser.me/api/?results=#{usercount}&nat=de&inc=picture,name&noinfo"
 api_response_json = open(image_api_url).read
-api_response_parsed = JSON.parse(api_response_json)
-image_url_array = []
-# api_response_parsed["results"].each do | child |
-#   image_url_array << child["picture"]["large"]
-# end
+api_response_parsed = JSON.parse(api_response_json)["results"]
 
 def create_bios
   bios = [
-    "Hi I am a happy #{["father", "mother"].sample} of #{rand(1..6)}!",
+    "Hi I am a happy parent of #{rand(1..6)}!",
     "We love Berlin and the many #{["playgrounds", "skate parks", "outdoor activities"].sample} it offers, and we are looking forward to meeting #{["happy", "international", "easy going"].sample} people.",
     "We are young parents in #{["Moabit", "Mitte", "Steglitz"].sample} and love #{["outdoor activities", "inline skates", "dancing"].sample}.",
     "We are parents of #{rand(1..6)} and we love everything that has #{["skates", "wheels", "wings"].sample}.",
-    "I am a single #{["mother", "father"].sample} new to #{["Pankow", "Schöneberg", "Kreuzberg"].sample} and would love to find some parent friends for our kids to play together and also have some #{["interesting conversations", "nice picnic", "fun at Berlin's public swimming pools"].sample} with other parents.",
+    "I am a single parent new to #{["Pankow", "Schöneberg", "Kreuzberg"].sample} and would love to find some parent friends for our kids to play together and also have some #{["interesting conversations", "nice picnic", "fun at Berlin's public swimming pools"].sample} with other parents.",
     "Our #{["twins", "triplets", "quadruplets"].sample} keep us busy exploring Berlin each day with them and we would love to meet other expat parents to go #{["on those adventures", "to the cinema", "for hiking"].sample} together.",
-    "Me and my wife are both Le Wagon #{["fullstack developer", "data science", "mobile developer"].sample} alumni and we are seeking other devs to hang out and tech talk while our #{rand(1..6)} kids play in the playground."
+    "Me and my spouse are both Le Wagon #{["fullstack developer", "data science", "mobile developer"].sample} alumni and we are seeking other devs to hang out and tech talk while our #{rand(1..6)} kids play in the playground."
   ]
   return bios
 end
 
 email_suffix = 1
 puts "Creating #{usercount} users..."
-image_url_array.each do | imageurl |
+api_response_parsed.each do | hash_name_image |
   bios_list = create_bios
   user = User.new(
     email: "test#{email_suffix}@test.com",
     password: "secure",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
+    first_name: hash_name_image["name"]["first"],
+    last_name: hash_name_image["name"]["last"],
     bio: bios_list.sample,
     date_of_birth: "#{rand(1966..1996)}-#{rand(1..12)}-#{rand(1..28)}",
     latitude: "#{rand(52.434620..52.562476).round(6)}",
     longitude: "#{rand(13.280831..13.572970).round(6)}"
   )
   # Save photos with Active Record to Cloudinary:
-  photo = URI.open(imageurl)
+  photo = URI.open(hash_name_image["picture"]["large"])
   user.photo.attach(io: photo, filename: 'name.jpg', content_type: 'image/jpg')
   user.save
   User.last == "" ? (puts "Error!") : (puts "Added #{User.last.first_name} #{User.last.last_name}")
@@ -116,3 +112,4 @@ end
 puts "Finished creating events!"
 puts
 puts "Seed procedure completed in #{(Time.now - starttime).round(0)} seconds."
+puts
