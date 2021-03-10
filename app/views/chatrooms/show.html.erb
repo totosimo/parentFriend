@@ -15,7 +15,7 @@
     </div>
     <div>
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, input_html: { autocomplete: 'off' }, placeholder: "Message #{@name}", class: "message-box" %>
+        <%= f.input :content, autofocus: true, label: false, input_html: { autocomplete: 'off', data: {user: current_user.id} }, placeholder: "Message #{@user.first_name}", class: "message-box" %>
         <%= f.submit "Send", class: "btn btn-prim-black" %>
       <% end %>
     </div>
