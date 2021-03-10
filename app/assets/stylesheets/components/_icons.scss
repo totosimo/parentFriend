@@ -1,6 +1,10 @@
 .icon-links {
   text-decoration: none;
   color: $dark-green;
+  &:hover {
+    color: $dark-green;
+    opacity: 0.7;
+  }
 }
 
 .icon-big {
