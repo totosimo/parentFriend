@@ -35,18 +35,18 @@
   <div class="d-flex justify-content-between">
     <div>
       <div>
-        <h2>Dates:</h2>
-        <p>Start: <%= @event.date_time_start %> </p>
-        <p>End: <%= @event.date_time_end %> </p>
+        <h3>dates:</h3>
+        <p>start: <%= @event.date_time_start %> </p>
+        <p>end: <%= @event.date_time_end %> </p>
       </div>
-      <div><h2>Address:</h2>
+      <div><h3>address:</h3>
       <p><%= @event.address %></p>
       </div>
     </div>
 
 
     <% if @event.bookings.length != 0 %>
-      <div><h2>Attendees:</h2>
+      <div><h3>attendees:</h3>
       <% @event.bookings.each do |booking| %>
         <%= link_to user_path(booking.user), class: "text-decoration-none text-primary" do %>
           <div class="d-flex justify-content-around align-items-center">

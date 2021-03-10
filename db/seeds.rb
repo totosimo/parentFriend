@@ -5,9 +5,10 @@ require 'json'
 starttime = Time.now
 
 puts "Deleting all database entries..."
-
+Booking.delete_all
 Message.delete_all
 Event.delete_all
+UserChatroom.delete_all
 Chatroom.delete_all
 User.delete_all
 
