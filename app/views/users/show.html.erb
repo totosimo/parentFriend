@@ -10,10 +10,12 @@
       <h2>PARENTFRIEND'S DETAILS</h2>
     </div>
     <div class="right">
-        <i class="fa fa-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Add user to your friend list"></i>
-        <i class="fas fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with user"></i>
+        <i class="fas fa-star icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Add user to your friend list"></i>
+        <i class="fas fa-comments icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with user"></i>
     </div>
   </div>
+</div>
+<div class="container">
 
 
 <%= @user.first_name %>
@@ -22,9 +24,9 @@
 <br>
 <%= @user.bio %>
 <br>
-<%= link_to 'New Chat', chatrooms_path(user_id: @user.id), method: :post %>
 
+<%= (link_to 'New Chat', chatrooms_path(user_id: @user.id), method: :post) unless @user == current_user %>
 
-
+</div>
 
 
