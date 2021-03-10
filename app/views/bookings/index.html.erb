@@ -1,5 +1,5 @@
 <div class="container text-center">
-    <h1>All my bookings</h1>
+    <h1>My Events</h1>
     <% current_user.bookings.each do |booking| %>
         <%= link_to event_path(booking.event), class: "card-event-link" do %>
             <div class="card-event">

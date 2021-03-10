@@ -24,9 +24,13 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @booking = Booking.new
     @event.user = current_user
     authorize @event
-    if @event.save
+    authorize @booking
+    @booking.event = @event
+    @booking.user = current_user
+    if @event.save && @booking.save
       redirect_to event_path(@event)
     else
       render :new
