@@ -26,25 +26,32 @@
   <% else %>
       <%= image_tag "/assets/default_event.png", class: "event-show-image" %>
   <% end %>
-  <div class="middle">
+  <div class="middle d-flex justify-content-between">
       <h2><%= @event.name %></h2>
+      <div>
+        <%= link_to events_path, class: "icon-links" do %>
+            <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
+            <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+        <% end %>
+      </div>
   </div>
   <div>
-    <p><%= @event.description %></p>
+    <p>
+      <%= @event.description %>
+    </p>
   </div>
   <div class="d-flex justify-content-between">
     <div>
       <div>
         <%# <h3>dates:</h3> %>
-        <i class="fal fa-calendar-alt" aria-hidden="true"></i>
+        <i class="fa fa-calendar-alt icon-links icon-small" aria-hidden="true"></i>
         <br><%= @event.date_time_start.time.strftime(" %B %e, %l: %M %p")%> 
          - <%= @event.date_time_end.time.strftime("%l: %M %p")%> 
       </div>
        <div>
-          <%= link_to events_path, class: "icon-links" do %>
-     <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
-    <% end %>
-      <p><%= @event.address %></p>
+        <p><%= @event.address %></p>
       </div>
    
 
@@ -72,11 +79,5 @@
 
 
   </div>
-   <%= link_to events_path, class: "icon-links" do %>
-     <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
-   <% end %>
-   <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
-      <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
-   <% end %>
 </div>
  </div>
