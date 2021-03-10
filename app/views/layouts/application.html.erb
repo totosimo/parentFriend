@@ -18,10 +18,10 @@
       <div class="flex-grow-1">
         <%= yield %>
       </div>
-      <div class="nav-emptyspace">
-      </div>
+      
       <% unless controller_name == "pages" && controller.action_name == "home"%>
         <%= render 'shared/navbar' %>
+        <div class="nav-emptyspace"></div>
       <% end %>
     </div>
     <%# test comment %>

@@ -1,15 +1,3 @@
-h1 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 24px;
-}
-
-p {
-  font-size: 16px;
-}
-
 .headline-flexbox {
   display: flex;
   justify-content: space-between;
@@ -20,7 +8,7 @@ p {
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 3px;
   align-items: center;
   // height: auto;
@@ -39,4 +27,21 @@ p {
     min-width: 22px;
   }
 }
+h1 {
+  font-size: 30px;
+  color: #184d47;
+  text-shadow: 1px 1px #184d475e;
+}
 
+h2 {
+  font-size: 25px;
+  color: #184d47;
+}
+h3 {
+  font-size: 18px;
+  color: #184d47;
+}
+
+.p {
+  font-size: 16px;
+}
