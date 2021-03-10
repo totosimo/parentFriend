@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :user_chatrooms
   has_many :bookings
   has_many :chatrooms, through: :user_chatrooms
+  validates :first_name, :last_name, presence: :true
 end
