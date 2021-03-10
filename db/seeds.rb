@@ -1,5 +1,6 @@
-require "open-uri"
-require "faker"
+require 'open-uri'
+require 'faker'
+require 'json'
 
 Message.delete_all
 Event.delete_all
