@@ -8,7 +8,9 @@ const initChatroomCable = () => {
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
-        document.querySelector("input").value = '';
+        // document.querySelector("input").value = '';
+        // const test = document.querySelector("input");
+        // console.log(test.dataset);
         // document.querySelectorAll('.message-container')[document.querySelectorAll('.message-container').length - 1].focus();
       },
     });

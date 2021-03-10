@@ -1,15 +1,21 @@
-.message-container {
-  background-color: azure;
-  padding: 5px 13px 0px;
+.chat-head {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  margin-left: calc(15px + 2vw);
+
+  h2 {
+    margin: 0 0 0 10px;
+  }
 }
 
 .chat-flexbox {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 154px);
 }
 
 .message-container {
+  padding: 5px 13px 0px;
   border-radius: 13px;
   background-color: #fcfcfc;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
