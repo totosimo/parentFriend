@@ -9,6 +9,17 @@ User.delete_all
 
 # Users #######################################
 
+usercount = 10
+
+# Creates an array of random user profile image urls
+image_api_url = "https://randomuser.me/api/?results=#{usercount}&inc=picture&nat=de"
+api_response_json = open(image_api_url).read
+api_response_parsed = JSON.parse(api_response_json)
+image_url_array = []
+api_response_parsed["results"].each do | child |
+  image_url_array << child["picture"]["large"]
+end
+
 bios_list = [
   "Hi I am a happy father of 2!",
   "We love Berlin and the many playgrounds it offers, and we are looking forward to meeting happy people.",
@@ -19,7 +30,6 @@ bios_list = [
   "Me and my wife are both Le Wagon fullstack developer alumni and we are seeking other devs to hang out and tech talk while our kids play in the playground."
 ]
 
-usercount = 10
 email_suffix = 1
 puts "Creating #{usercount} users..."
 usercount.times do
