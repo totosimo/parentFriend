@@ -1,8 +1,13 @@
+<div class="d-flex align-items-center chat-head">
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, width: 32, height: 32, class: "rounded-circle border border-dark" %>
+  <% else %>
+    <%= image_tag "/assets/default_avatar.png", width: 32, height: 32, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
+  <% end %>
+  <h2><%= @user.first_name %></h2>
+</div>
 <div class="container">
   <div class="chat-flexbox">
-    <div>
-      <h2><%= @name %></h2>
-    </div>
     <div class="messages-scrollable" id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>

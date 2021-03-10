@@ -15,7 +15,7 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     authorize @chatroom
     chat_user_ids = @chatroom.user_chatrooms.map { |record| record.user_id }
-    @name = User.find(chat_user_ids.reject { |id| id.eql?(current_user.id) })[0].first_name
+    @user = User.find(chat_user_ids.reject { |id| id.eql?(current_user.id) })[0]
     # raise
   end
 
