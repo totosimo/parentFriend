@@ -71,7 +71,7 @@
      <%= link_to events_path, class: "icon-links" do %>
      <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
     <% end %>
-      <%= link_to events_path, class: "icon-links" do %>
-     <i class="fas fa-star" aria-hidden="true"></i>
+    <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
+      <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
     <% end %>
 </div>
