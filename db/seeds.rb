@@ -9,7 +9,7 @@ User.delete_all
 
 # Users #######################################
 
-usercount = 30
+usercount = 3
 
 # Calls random user profile picture API and parses json response into
 # an array of picture URLs
@@ -36,7 +36,7 @@ end
 
 email_suffix = 1
 puts "Creating #{usercount} users..."
-image_url_array.each do
+image_url_array.each do | imageurl |
   bios_list = create_bios
   user = User.new(
     email: "test#{email_suffix}@test.com",
@@ -48,11 +48,14 @@ image_url_array.each do
     latitude: "#{rand(52.434620..52.562476).round(6)}",
     longitude: "#{rand(13.280831..13.572970).round(6)}"
   )
+  # Save photos with Active Record to Cloudinary:
+  photo = URI.open(imageurl)
+  user.photo.attach(io: photo, filename: 'name.jpg', content_type: 'image/jpg')
   user.save
   User.last == "" ? (puts "Error!") : (puts "Added #{User.last.first_name} #{User.last.last_name}")
   email_suffix += 1
 end
-puts "Finished!"
+puts "Finished creating users!"
 puts
 
 # Chatrooms  #######################################
@@ -90,11 +93,11 @@ event_list.each do | name, description, event_type, date_time_start, date_time_e
     user: User.all.sample,
     address: address
   )
-# Save photos with Active Record to Cloudinary:
+  # Save photos with Active Record to Cloudinary:
   photo = URI.open(event_image)
   event.photo.attach(io: photo, filename: 'name.webp', content_type: 'image/webp')
   event.save
   Event.last == "" ? (puts "Error!") : (puts "Added #{Event.last.name}")
   user_id += 1
 end
-puts "Finished!"
+puts "Finished creating events!"
