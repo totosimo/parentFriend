@@ -2,24 +2,37 @@ require 'open-uri'
 require 'faker'
 require 'json'
 
+starttime = Time.now
+
+puts "Deleting all database entries..."
+
 Message.delete_all
 Event.delete_all
 Chatroom.delete_all
 User.delete_all
 
+puts "Done deleting. Starting seeding now."
+puts
+
 # Users #######################################
 
-usercount = 3
+if Rails.env.production?
+  puts "Detected production environment."
+  usercount = 100
+else
+  puts "Did not detect production environment."
+  usercount = 20
+end
 
 # Calls random user profile picture API and parses json response into
 # an array of picture URLs
-image_api_url = "https://randomuser.me/api/?results=#{usercount}&inc=picture&nat=de"
+image_api_url = "https://randomuser.me/api/?results=#{usercount}&nat=de&inc=picture,name&noinfo"
 api_response_json = open(image_api_url).read
 api_response_parsed = JSON.parse(api_response_json)
 image_url_array = []
-api_response_parsed["results"].each do | child |
-  image_url_array << child["picture"]["large"]
-end
+# api_response_parsed["results"].each do | child |
+#   image_url_array << child["picture"]["large"]
+# end
 
 def create_bios
   bios = [
@@ -101,3 +114,5 @@ event_list.each do | name, description, event_type, date_time_start, date_time_e
   user_id += 1
 end
 puts "Finished creating events!"
+puts
+puts "Seed procedure completed in #{(Time.now - starttime).round(0)} seconds."
