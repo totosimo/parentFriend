@@ -13,15 +13,24 @@
   border-radius: 13px;
   background-color: #fcfcfc;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  width:90%;
-  .author {
+  width:86%;
+  margin-left: 2vw;
+  .author span {
     font-weight: bold;
-    color: gray;
+    color:#184d47;
+  }
+  .author small {
+    font-weight: bold;
+    color:grey;
   }
 }
 
 .my-message {
-  margin-left: 10vw;
+  margin-left: 11vw;
+  .author span {
+    font-weight: bold;
+    color:#b8711f;
+  }
 }
 
 .new_message {
@@ -38,8 +47,13 @@
     margin: 0;
   }
 
+  .btn {
+    margin-right: 2vw;
+  }
+
 }
 
 #message_content {
   border-radius: 13px;
+  margin-left: 2vw;
 }

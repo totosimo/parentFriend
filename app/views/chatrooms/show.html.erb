@@ -10,8 +10,8 @@
     </div>
     <div>
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message #{@name}", class: "message-box" %>
-        <%= f.submit "Send", class: "btn-prim-black" %>
+        <%= f.input :content, label: false, input_html: { autocomplete: 'off' }, placeholder: "Message #{@name}", class: "message-box" %>
+        <%= f.submit "Send", class: "btn btn-prim-black" %>
       <% end %>
     </div>
   </div>
