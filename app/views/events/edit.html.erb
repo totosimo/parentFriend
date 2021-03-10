@@ -17,10 +17,10 @@
                       collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
               <div class="row">
                 <div class="w-50">
-                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event start'  %>
+                  <%= f.input :date_time_start, as: :string, input_html: { autocomplete: 'off', class: "datepicker" }, label: 'Event start'  %>
                 </div>
                 <div class="w-50">
-                  <%= f.input :date_time_start, as: :string, input_html: {class: "datepicker"}, label: 'Event end'  %>
+                  <%= f.input :date_time_end, as: :string, input_html: { autocomplete: 'off', class: "datepicker" }, label: 'Event end'  %>
                 </div>
               </div>
               <%= f.input :address, placeholder: 'Vapiano Potsdamer Platz Berlin' %>
