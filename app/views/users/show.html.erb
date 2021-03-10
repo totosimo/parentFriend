@@ -11,30 +11,29 @@
     </div>
     <div class="right">
         <i class="fas fa-star icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Add user to your friend list"></i>
-        <%= (link_to 'New Chat', chatrooms_path(user_id: @user.id), method: :post) unless @user == current_user do %>
-          <i class="fas fa-comments icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with user"></i>
+        <% unless @user == current_user %>
+          <%= link_to chatrooms_path(user_id: @user.id), method: :post do %>
+            <i class="fas fa-comments icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with user"></i>
+          <% end %>
         <% end %>
     </div>
   </div>
 </div>
-
-<div class="userprofile-avatar">
-  <div>
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img" %>
-    <% else %>
-      <%= image_tag "/assets/default_avatar.png", width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
-    <% end %>
-  </div>
-</div>
-
 <div class="container">
-  <div class="row justify-content-center mt-4 mb-2">
+  <div class="userprofile-avatar pt-4">
     <div>
-      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <%= cl_image_tag @user.photo.key, width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img" %>
     </div>
   </div>
-  <div>
-    <%= @user.bio %>
+
+  <div class="container">
+    <div class="row justify-content-center mt-4 mb-2">
+      <div>
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      </div>
+    </div>
+    <div class="user_bio">
+      <%= @user.bio %>
+    </div>
   </div>
 </div>
