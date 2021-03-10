@@ -9,9 +9,10 @@ User.delete_all
 
 # Users #######################################
 
-usercount = 10
+usercount = 30
 
-# Creates an array of random user profile image urls
+# Calls random user profile picture API and parses json response into
+# an array of picture URLs
 image_api_url = "https://randomuser.me/api/?results=#{usercount}&inc=picture&nat=de"
 api_response_json = open(image_api_url).read
 api_response_parsed = JSON.parse(api_response_json)
@@ -20,19 +21,23 @@ api_response_parsed["results"].each do | child |
   image_url_array << child["picture"]["large"]
 end
 
-bios_list = [
-  "Hi I am a happy father of 2!",
-  "We love Berlin and the many playgrounds it offers, and we are looking forward to meeting happy people.",
-  "We are young parents in Berlin and love outdoor activities.",
-  "We are parents of 4 and we love everything that has skates.",
-  "I am a single parent new to Berlin and would love to find some parent friends for our kids to play together and also have some interesting conversations with other parents.",
-  "Our twins keep us busy exploring Berlin each day with them and we would love to meet other expat parents to go on those adventures together",
-  "Me and my wife are both Le Wagon fullstack developer alumni and we are seeking other devs to hang out and tech talk while our kids play in the playground."
-]
+def create_bios
+  bios = [
+    "Hi I am a happy #{["father", "mother"].sample} of #{rand(1..6)}!",
+    "We love Berlin and the many #{["playgrounds", "skate parks", "outdoor activities"].sample} it offers, and we are looking forward to meeting #{["happy", "international", "easy going"].sample} people.",
+    "We are young parents in #{["Moabit", "Mitte", "Steglitz"].sample} and love #{["outdoor activities", "inline skates", "dancing"].sample}.",
+    "We are parents of #{rand(1..6)} and we love everything that has #{["skates", "wheels", "wings"].sample}.",
+    "I am a single #{["mother", "father"].sample} new to #{["Pankow", "Schöneberg", "Kreuzberg"].sample} and would love to find some parent friends for our kids to play together and also have some #{["interesting conversations", "nice picnic", "fun at Berlin's public swimming pools"].sample} with other parents.",
+    "Our #{["twins", "triplets", "quadruplets"].sample} keep us busy exploring Berlin each day with them and we would love to meet other expat parents to go #{["on those adventures", "to the cinema", "for hiking"].sample} together.",
+    "Me and my wife are both Le Wagon #{["fullstack developer", "data science", "mobile developer"].sample} alumni and we are seeking other devs to hang out and tech talk while our #{rand(1..6)} kids play in the playground."
+  ]
+  return bios
+end
 
 email_suffix = 1
 puts "Creating #{usercount} users..."
-usercount.times do
+image_url_array.each do
+  bios_list = create_bios
   user = User.new(
     email: "test#{email_suffix}@test.com",
     password: "secure",
