@@ -17,22 +17,30 @@
 }
 
 .card-chat-user {
-    overflow: hidden;
-    height: 80px;
-    background: white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    margin: 10px 0 10px 0;
-    border-radius: 13px;
-    position: relative;
+  overflow: hidden;
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  border-radius: 13px;
+  position: relative;
+
+  img {
+    margin-left: 16px;
   }
+
+  h4 {
+    margin: 0 0 0 16px;
+  }
+}
 
 .card-chat-link {
   text-decoration: none;
   color: black;
   &:hover {
-      text-decoration: none;
-      color: black;
+    text-decoration: none;
+    color: black;
   }
 }
