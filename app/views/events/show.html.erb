@@ -5,9 +5,7 @@
       <i class="fas fa-backward icon-big" aria-hidden="true"></i>
       <% end %>
     </div>
-    <div class="middle">
-      <h2><%= @event.name %></h2>
-    </div>
+    
     <div class="right">
       <% if current_user.id == @event.user_id %>
        <%= link_to edit_event_path(@event), class: "icon-links" do %>
@@ -22,12 +20,14 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <% if @event.photo.attached? %>
-      <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
-    <% else %>
-       <%= image_tag "/assets/default_event.png", class: "event-show-image" %>
-    <% end %>
+  
+  <% if @event.photo.attached? %>
+    <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
+  <% else %>
+      <%= image_tag "/assets/default_event.png", class: "event-show-image" %>
+  <% end %>
+  <div class="middle">
+      <h2><%= @event.name %></h2>
   </div>
   <div>
     <p><%= @event.description %></p>
@@ -35,29 +35,33 @@
   <div class="d-flex justify-content-between">
     <div>
       <div>
-        <h3>dates:</h3>
-        <p>start: <%= @event.date_time_start %> </p>
-        <p>end: <%= @event.date_time_end %> </p>
+        <%# <h3>dates:</h3> %>
+        <i class="fal fa-calendar-alt" aria-hidden="true"></i>
+        <br><%= @event.date_time_start.time.strftime(" %B %e, %l: %M %p")%> 
+         - <%= @event.date_time_end.time.strftime("%l: %M %p")%> 
       </div>
-      <div><h3>address:</h3>
+       <div>
+          <%= link_to events_path, class: "icon-links" do %>
+     <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
+    <% end %>
       <p><%= @event.address %></p>
       </div>
-    </div>
+   
 
 
     <% if @event.bookings.length != 0 %>
       <div><h3>attendees:</h3>
       <% @event.bookings.each do |booking| %>
         <%= link_to user_path(booking.user), class: "text-decoration-none text-primary" do %>
-          <div class="d-flex justify-content-around align-items-center">
+          <%# <div class="d-flex justify-content-around align-items-center"> %>
             <% if booking.user.photo.attached? %>
               <%= cl_image_tag booking.user.photo.key, width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
             <% else %>
-              <%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> 
+              <%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle avatar-img" %> 
               <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
             <% end %>
             <% if policy(booking).destroy? %>
-              <%= link_to "Leave", booking_path(booking), class: "text-decoration-none text-white btn-sm btn-warning", method: "delete" %>
+              <%= link_to "Leave", booking_path(booking), class: "btn-prim-black", method: "delete" %>
             <% end %>
           </div>
           <hr>
@@ -68,10 +72,9 @@
 
 
   </div>
-     <%= link_to events_path, class: "icon-links" do %>
-     <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
-    <% end %>
+ 
       <%= link_to events_path, class: "icon-links" do %>
      <i class="fas fa-star" aria-hidden="true"></i>
     <% end %>
 </div>
+ </div>
