@@ -1682,6 +1682,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-auto-dismiss-alert@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-auto-dismiss-alert/-/bootstrap-auto-dismiss-alert-1.0.2.tgz#5f49f252107d1ec108d2594f59b582a8a76d2c07"
+  integrity sha1-X0nyUhB9HsEI0llPWbWCqKdtLAc=
+
 bootstrap@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"

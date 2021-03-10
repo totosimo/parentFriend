@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { initFlatpickr } from "../plugins/flatpickr";
+import "bootstrap-auto-dismiss-alert";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -32,6 +32,7 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { initCurrentPosition } from '../components/map';
 import { initMapbox } from '../plugins/init_mapbox';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
