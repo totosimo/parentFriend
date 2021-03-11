@@ -63,7 +63,7 @@ const initCurrentPosition = () => {
                 element.style.backgroundSize = 'contain';
                 element.style.width = '56px';
                 element.style.height = '56px';
-                new mapboxgl.Marker(element)
+                new mapboxgl.Marker({ "color": "#184d47" })
                     .setLngLat([ marker.lng, marker.lat ])
                     .setPopup(popup)
                     .addTo(map);
