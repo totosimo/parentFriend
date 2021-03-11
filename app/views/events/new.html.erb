@@ -14,7 +14,7 @@
                       placeholder: 'Let’s get our skateboards and have some fun in the sun! Don\'t forget to bring the necessary sun protection. And also enough water - looks like it is gonna be very warm!' %>
               <%= f.input :event_type,
                       label: 'Select the category',
-                      collection: ['Sports', 'Eating', 'Playground', 'Stroll'] %>
+                      collection: ['Sports', 'Eating', 'Playground', 'Stroll'], include_blank: false %>
                 <div class="row-two">
                  <div class="w-50">
                    <%= f.input :date_time_start, as: :string, input_html: {autocomplete: 'off', class: "datepicker"}, label: 'Event start'  %>
