@@ -24,7 +24,7 @@
                  </div>
                 </div>
               <%= f.input :address, placeholder: 'Potsdamer Platz' %>
-              <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'btn-prim-white'}, label: 'Upload an image' %>
+                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'btn-prim-white m-1'}, label: 'Upload an image' %>
               <%= image_tag "", width: 130, class: "hidden", id: "photo-preview" %>
             </div>
 
