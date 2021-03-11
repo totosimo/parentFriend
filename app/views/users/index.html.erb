@@ -17,18 +17,18 @@
         <div class="card-event">
           <div>
             <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: "event-index-image" %>
+              <%= cl_image_tag user.photo.key, class: "event-index-image card-user-img" %>
             <% else %>
-               <%= image_tag "/assets/default_avatar.png", class: "event-index-image" %>
+               <%= image_tag "/assets/default_avatar.png", class: "event-index-image card-user-img" %>
             <% end %>
           </div>
           <div class="card-event-infos">
 <!-- insert star and chat bubble here lines 26-33 from event index-->
             <div class="card-event-h2-div">
-              <h2 class="text-center"><%= user.first_name %> <%= user.last_name %></h2>
+              <h2 class="text-left"><%= user.first_name %> <%= user.last_name %></h2>
             </div>
             <div class="card-event-p-div">
-              <p><%= user.bio %></p>
+              <p class="text-left"><%= user.bio %></p>
             </div>
           </div>
         </div>
