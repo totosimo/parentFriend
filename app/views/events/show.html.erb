@@ -21,10 +21,20 @@
       <%= link_to events_path, class: "icon-links" do %>
           <i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>
       <% end %>
-      <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
-          <i class="fa fa-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
-      <% end %>
-    </div>
+        <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
+          <% if @event.bookings.length != 0 %>
+            <% @event.bookings.each do |booking| %>
+              <% if booking.user == current_user %>
+                " aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
+              <% else %>
+                <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+              <% end %><i class="fa fa-star icon-small icon-booked
+            <% end %>
+          <% else %>
+            <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+          <% end %>
+        <% end %>
+      </div>
   </div>
   <div>
     <p>
