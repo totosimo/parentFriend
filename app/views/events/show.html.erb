@@ -36,7 +36,7 @@
           <% if @event.bookings.length != 0 %>
             <% @event.bookings.each do |booking| %>
               <% if booking.user == current_user %>
-                <i class="fa fa-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                <i class="fa fa-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
               <% else %>
                 <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
               <% end %>
@@ -69,17 +69,15 @@
       <div><h3>attendees:</h3>
       <% @event.bookings.each do |booking| %>
         <%= link_to user_path(booking.user), class: "text-decoration-none text-primary" do %>
-          <%# <div class="d-flex justify-content-around align-items-center"> %>
-            <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key, width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
-            <% else %>
-              <%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle avatar-img" %> 
-              <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-            <% end %>
-            <% if policy(booking).destroy? %>
-              <%= link_to "Leave", booking_path(booking), class: "btn-prim-black", method: "delete" %>
-            <% end %>
-          </div>
+          <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key, width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
+          <% else %>
+            <%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle avatar-img" %> 
+            <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+          <% end %>
+          <% if policy(booking).destroy? %>
+            <%= link_to "Leave", booking_path(booking), class: "btn-prim-black", method: "delete" %>
+          <% end %>
           <hr>
         <% end %>
       <% end %>
