@@ -1,24 +1,22 @@
-<div class="container">
+<div class="container text-center mt-2">
   <div class="headline-nav">
-    <div>
+    <div class="left">
     </div>
     <div class="middle">
-      <h1>Parent Friend</h1>
+      <h2>Parent Friend</h2>
     </div>
-    <div><%= link_to edit_user_registration_path(@user), class: "icon-links" do %>
-      <i class="fas fa-cog icon-big"></i>
+    <div class="right">
+      <%= link_to edit_user_registration_path(@user), class: "icon-links" do %>
+        <i class="fas fa-cog"></i>
       <% end %>
     </div>
   </div>
 </div>
-
+<img src="https://images.pexels.com/photos/1620653/pexels-photo-1620653.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Family Activities" style="width: 100%; height: 400px; object-fit: cover">
 <div class="container">
-  <div>
-  <img src="https://images.pexels.com/photos/1620653/pexels-photo-1620653.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Family Activities" style="width: 100%; height: 400px; object-fit: cover; border-radius: 5px; border-style: solid; border-width: 0.05px; border-color: #184d471d;">
-  </div>
   <div class= "new events">
-  <br>
-  <br>
+    <br>
+    <br>
     <%= link_to 'join an event', events_path, class: "btn-prim-white w-100" %>
     <br>
     <br>

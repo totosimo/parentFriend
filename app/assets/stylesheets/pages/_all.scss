@@ -12,9 +12,11 @@
   padding-bottom: 3px;
   align-items: center;
   // height: auto;
+
   .left {
-    min-width: 22px;
+    min-width: 32px;
   }
+
   .middle {
     // position: absolute;
     // left: 50%;
@@ -23,10 +25,20 @@
     // padding-left: 10px;
     // padding-right: 10px;
   }
+
   .rigth {
-    min-width: 22px;
+    min-width: 32px;
+  }
+
+  .fas {
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    // margin: 0;
   }
 }
+
 h1 {
   font-size: 30px;
   color: #184d47;
