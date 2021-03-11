@@ -25,7 +25,17 @@
           <div class="card-event-infos">
             <div class="card-event-icons-div">
               <%= link_to event_bookings_path(event), class: "icon-links", method: "post" do %>
-                <i class="fa fa-star card-event-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                <% if event.bookings.length != 0 %>
+                  <% event.bookings.each do |booking| %>
+                    <% if booking.user == current_user %>
+                      <i class="fa fa-star card-event-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
+                    <% else %>
+                      <i class="fa fa-star card-event-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <i class="fa fa-star card-event-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                <% end %>
               <% end %>
               <%#= link_to chatrooms_path, class: "card-event-link card-op" do %>
                 <%# <i class="fas fa-comments card-event-chat" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with event participants"></i> %>
