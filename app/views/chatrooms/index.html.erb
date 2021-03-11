@@ -1,22 +1,25 @@
 <div class="container text-center mt-3">
   <h2>My chats</h2>
-  <div class="chats-scrollable ">
-    <% @my_chat_users.each do |entry| %>
-      <%= link_to chatroom_path(entry[:chat]), class: "card-chat-link" do %>
-        <div class="card-chat-user">
-          <% if entry[:other_u].photo.attached? %>
-            <%= cl_image_tag entry[:other_u].photo.key, width: 48, height: 48, class: "rounded-circle" %>
-          <% else %>
-            <%= image_tag "/assets/default_avatar.png", width: 48, height: 48, class: "hidden rounded-circle border avatar-img", id: "photo-preview" %>
-          <% end %>
+</div>
+<div class = "container px-0">
+  <div class="chats-scrollable px-3">
+  <% @my_chat_users.each do |entry| %>
+    <%= link_to chatroom_path(entry[:chat]), class: "card-chat-link" do %>
+       <div class="card-chat-user">
+         <% if entry[:other_u].photo.attached? %>
+           <%= cl_image_tag entry[:other_u].photo.key, width: 48, height: 48, class: "rounded-circle" %>
+         <% else %>
+           <%= image_tag "/assets/default_avatar.png", width: 48, height: 48, class: "hidden rounded-circle border avatar-img", id: "photo-preview" %>
+         <% end %>
 
-          <% if entry[:other_u].present? %>
-            <h4> <%= entry[:other_u].first_name %> </h4>
-          <% else %>
-            <h4> <%= entry[:chat].name %> </h4>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
+         <% if entry[:other_u].present? %>
+           <h4> <%= entry[:other_u].first_name %> </h4>
+         <% else %>
+           <h4> <%= entry[:chat].name %> </h4>
+         <% end %>
+       </div>
+     <% end %>
+   <% end %>
   </div>
 </div>
+
