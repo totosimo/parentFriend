@@ -1,45 +1,34 @@
-<div class="container">
-  <div class="headline-nav">
-    <div class="left">
-      <%= link_to :back, class: "icon-links" do %>
-      <i class="fas fa-backward icon-big" aria-hidden="true"></i>
-      <% end %>
-    </div>
-    
-    <div class="right">
-      <% if current_user.id == @event.user_id %>
-       <%= link_to edit_event_path(@event), class: "icon-links" do %>
-       <i class="fas fa-edit icon-big" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
-
-      <% if current_user.id == @event.user_id %>
-        <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "icon-links" do %>
-        <i class="fas fa-trash icon-big" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
+<% if @event.photo.attached? %>
+  <div class="banner-event-img" style="background-image: url('<%= cl_image_path @event.photo.key, height: 250, crop: :fill %>')">
+    <div class="container">
+      <%= render "show_navbar", event: @event %>
     </div>
   </div>
-  
-  <% if @event.photo.attached? %>
-    <%= cl_image_tag @event.photo.key, class: "event-show-image" %>
-  <% else %>
-      <%= image_tag "/assets/default_event.png", class: "event-show-image" %>
-  <% end %>
+  <%# cl_image_tag @event.photo.key, class: "event-show-image" %>
+<% else %>
+
+  <div class="banner-event-img-default" style="background-image: url(<%= asset_path 'default_event.png', height: 250 %>)">
+    <div class="container">
+      <%= render "show_navbar", event: @event %>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
   <div class="middle d-flex justify-content-between">
-      <h2><%= @event.name %></h2>
-      <div>
-        <%= link_to events_path, class: "icon-links" do %>
-            <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
-        <% end %>
+    <h2><%= @event.name %></h2>
+    <div>
+      <%= link_to events_path, class: "icon-links" do %>
+          <i class="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>
+      <% end %>
         <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
           <% if @event.bookings.length != 0 %>
             <% @event.bookings.each do |booking| %>
               <% if booking.user == current_user %>
-                <i class="fa fa-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
+                " aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
               <% else %>
                 <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
-              <% end %>
+              <% end %><i class="fa fa-star icon-small icon-booked
             <% end %>
           <% else %>
             <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
@@ -52,39 +41,43 @@
       <%= @event.description %>
     </p>
   </div>
-  <div class="d-flex justify-content-between">
+  <div >
     <div>
-      <div>
-        <i class="fa fa-calendar-alt icon-links icon-small" aria-hidden="true"></i>
-        <br><%= @event.date_time_start.time.strftime(" %B %e, %l: %M %p")%> 
-         - <%= @event.date_time_end.time.strftime("%l: %M %p")%> 
+      <div class='d-flex info-disp'>
+        <%# <h3>dates:</h3> %>
+        <i class="far fa-calendar-alt icon-links mt-1" aria-hidden="true"></i>
+        <p>
+        <%= @event.date_time_start.time.strftime(" %B %e, %l: %M %p")%>
+         - <%= @event.date_time_end.time.strftime("%l: %M %p")%>
+        </p>
       </div>
-       <div>
+      <div class='d-flex info-disp'>
+        <i class="fas fa-map-marker-alt icon-links mt-1" aria-hidden="true"></i>
         <p><%= @event.address %></p>
       </div>
-   
-
-
     <% if @event.bookings.length != 0 %>
-      <div><h3>attendees:</h3>
-      <% @event.bookings.each do |booking| %>
-        <%= link_to user_path(booking.user), class: "text-decoration-none text-primary" do %>
-          <% if booking.user.photo.attached? %>
-            <%= cl_image_tag booking.user.photo.key, width: 56, height: 56, class: "hidden rounded-circle border border-dark avatar-img" %> <%= booking.user.first_name %> <%= booking.user.last_name %>
-          <% else %>
-            <%= image_tag "/assets/default_avatar.png", width: 56, height: 56, class: "hidden rounded-circle avatar-img" %> 
-            <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <div class='attendees'><h3>attendees:</h3>
+        <% @event.bookings.each do |booking| %>
+          <%= link_to user_path(booking.user) do %>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class='d-flex align-items-center attendee'>
+                <% if booking.user.photo.attached? %>
+                  <%= cl_image_tag booking.user.photo.key, width: 32, height: 32, class: "hidden rounded-circle border border-dark avatar-img" %>
+                <% else %>
+                  <%= image_tag "/assets/default_avatar.png", width: 32, height: 32, class: "hidden rounded-circle avatar-img" %>
+                <% end %>
+                <%= booking.user.first_name %> <%= booking.user.last_name %>
+              </div>
+              <div>
+                <% if policy(booking).destroy? %>
+                  <%= link_to "Leave", booking_path(booking), class: "btn btn-prim-black", id: "btn-small", method: "delete" %>
+                <% end %>
+              </div>
+            </div>
+            <hr>
           <% end %>
-          <% if policy(booking).destroy? %>
-            <%= link_to "Leave", booking_path(booking), class: "btn-prim-black", method: "delete" %>
-          <% end %>
-          <hr>
         <% end %>
-      <% end %>
       </div>
     <% end %>
-
-
   </div>
 </div>
- </div>
