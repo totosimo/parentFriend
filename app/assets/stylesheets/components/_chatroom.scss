@@ -6,6 +6,10 @@
   h2 {
     margin: 0 0 0 10px;
   }
+
+  img {
+    margin-top: -4px;
+  }
 }
 
 .chat-flexbox {
@@ -21,6 +25,8 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   width:86%;
   margin-left: 2vw;
+  margin-top: 8px;
+  margin-bottom: 8px;
 
   .author span {
     font-weight: bold;
@@ -40,6 +46,9 @@
 
 .my-message {
   margin-left: 11vw;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
   .author span {
     font-weight: bold;
     color:#b8711f;
