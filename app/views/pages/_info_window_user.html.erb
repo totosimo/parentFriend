@@ -7,8 +7,10 @@
             <% end %>
           </strong>
           <br>
-          <%= link_to chatrooms_path(user_id: user.id), method: :post, class: "card-popup-link" do %>
-              <i class="fas fa-comments text-center" aria-hidden="true"></i>
+          <% unless user == current_user %>
+            <%= link_to chatrooms_path(user_id: user.id), method: :post, class: "card-popup-link" do %>
+                <i class="fas fa-comments text-center" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </p>
     </div>
