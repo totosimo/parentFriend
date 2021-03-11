@@ -1,16 +1,7 @@
-<div class="container">
-  <div class="headline-nav">
-    <div class="left">
-    </div>
-    <div class="middle">
-      <h2>My ParentFriends</h2>
-    </div>
-    <div class="right">
-    </div>
-  </div>
+<div class= "container text-center mt-3">
+     <h2>My ParentFriends<h2>
 </div>
-
-<div class="container text-center">
+<div class = "container">
   <div class="myfriends-scrollable">
     <% @users.each do |user| %>
       <%= link_to user_path(user), class: "card-event-link" do %>
@@ -23,7 +14,6 @@
             <% end %>
           </div>
           <div class="card-event-infos">
-<!-- insert star and chat bubble here lines 26-33 from event index-->
             <div class="card-event-h2-div">
               <h2 class="text-left"><%= user.first_name %> <%= user.last_name %></h2>
             </div>
