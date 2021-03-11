@@ -23,8 +23,13 @@
                    <%= f.input :date_time_end, as: :string, input_html: {autocomplete: 'off', class: "datepicker"}, label: 'Event end'  %>
                  </div>
                 </div>
-              <%= f.input :address, placeholder: 'Potsdamer Platz' %>
-                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'btn-prim-white m-1'}, label: 'Upload an image' %>
+              <%= f.input :address,
+                      placeholder: 'Potsdamer Platz' %>
+              <%= f.input :photo,
+                      as: :file,
+                      label: 'upload an image',
+                      input_html: { class: 'd-none hidden', id: 'photo-input' },
+                      label_html: { class: 'btn-prim-white btn-spec-margin'} %>
               <%= image_tag "", width: 130, class: "hidden", id: "photo-preview" %>
             </div>
 
