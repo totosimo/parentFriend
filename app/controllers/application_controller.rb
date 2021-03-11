@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   def after_sign_in_path_for(resource)
     main_path
   end
@@ -20,4 +24,3 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :date_of_birth, :photo])
   end
 end
-
