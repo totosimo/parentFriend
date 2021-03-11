@@ -33,7 +33,17 @@
             <i class="fa fa-map-marked-alt icon-small" aria-hidden="true"></i>
         <% end %>
         <%= link_to event_bookings_path(@event), class: "icon-links", method: "post" do %>
+          <% if @event.bookings.length != 0 %>
+            <% @event.bookings.each do |booking| %>
+              <% if booking.user == current_user %>
+                <i class="fa fa-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+              <% else %>
+                <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+              <% end %>
+            <% end %>
+          <% else %>
             <i class="fa fa-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+          <% end %>
         <% end %>
       </div>
   </div>
@@ -45,7 +55,6 @@
   <div class="d-flex justify-content-between">
     <div>
       <div>
-        <%# <h3>dates:</h3> %>
         <i class="fa fa-calendar-alt icon-links icon-small" aria-hidden="true"></i>
         <br><%= @event.date_time_start.time.strftime(" %B %e, %l: %M %p")%> 
          - <%= @event.date_time_end.time.strftime("%l: %M %p")%> 
