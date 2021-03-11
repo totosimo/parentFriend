@@ -94,6 +94,14 @@
     display: none;
   }
 
+  .users-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
+  .myfriends-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
   .card-event-h2-div {
     padding-top: 16px;
     overflow: hidden;
