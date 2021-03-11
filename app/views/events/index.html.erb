@@ -1,5 +1,5 @@
 <div class= "container text-center mt-3">
-     <h2>Events near me<h2>
+  <h2>Events near me<h2>
 </div>
 <div class = "container">
   <div class="container text-center">
@@ -30,13 +30,13 @@
                 <% if event.bookings.length != 0 %>
                   <% event.bookings.each do |booking| %>
                     <% if booking.user == current_user %>
-                      <i class="fa fa-star card-event-star icon-small icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
+                      <i class="fa fa-star card-event-star icon-booked" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="You are attending this event"></i>
                     <% else %>
-                      <i class="fa fa-star card-event-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                      <i class="fa fa-star card-event-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
                     <% end %>
                   <% end %>
                 <% else %>
-                  <i class="fa fa-star card-event-star icon-small" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
+                  <i class="fa fa-star card-event-star" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Join the event"></i>
                 <% end %>
               <% end %>
               <%#= link_to chatrooms_path, class: "card-event-link card-op" do %>
