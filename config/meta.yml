@@ -1,0 +1,5 @@
+meta_product_name: "ParentFriend"
+meta_title: "ParentFriend - Turn anonymous parents in your hood into your new friends"
+meta_description: "With ParentFriend you can find parents in your neighborhood that have kids in the same age as yours so that you can hangout together, have your children play together and making new friends"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@ParentFriendApp"   # required for Twitter Cards
