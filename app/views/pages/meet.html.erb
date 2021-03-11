@@ -17,9 +17,9 @@
         <div class="card-event">
           <div>
             <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key, class: "event-index-image" %>
+              <%= cl_image_tag user.photo.key, class: "event-index-image card-user-img" %>
             <% else %>
-               <%= image_tag "/assets/default_avatar.png", class: "event-index-image" %>
+               <%= image_tag "/assets/default_avatar.png", class: "event-index-image card-user-img" %>
             <% end %>
           </div>
           <div class="card-event-infos">
