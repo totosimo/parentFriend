@@ -15,20 +15,27 @@
 }
 
 .message-container {
-  padding: 5px 13px 0px;
+  padding: 6px 13px 6px;
   border-radius: 13px;
   background-color: #fcfcfc;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   width:86%;
   margin-left: 2vw;
+
   .author span {
     font-weight: bold;
     color:#184d47;
   }
+
   .author small {
     font-weight: bold;
     color:grey;
   }
+
+  p {
+    margin: 0px;
+  }
+
 }
 
 .my-message {

@@ -5,10 +5,9 @@
       <%= link_to chatroom_path(entry[:chat]), class: "card-chat-link" do %>
         <div class="card-chat-user">
           <% if entry[:other_u].photo.attached? %>
-          <%# raise %>
-            <%= cl_image_tag entry[:other_u].photo.key, width: 48, height: 48, class: "rounded-circle border border-dark" %>
+            <%= cl_image_tag entry[:other_u].photo.key, width: 48, height: 48, class: "rounded-circle" %>
           <% else %>
-            <%= image_tag "/assets/default_avatar.png", width: 48, height: 48, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
+            <%= image_tag "/assets/default_avatar.png", width: 48, height: 48, class: "hidden rounded-circle border avatar-img", id: "photo-preview" %>
           <% end %>
 
           <% if entry[:other_u].present? %>
