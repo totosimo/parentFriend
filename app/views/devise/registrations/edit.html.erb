@@ -2,7 +2,7 @@
   <div class="headline-nav">
     <div class="left">
       <%= link_to :back, class: "icon-links" do %>
-      <i class="fas fa-backward icon-big"></i>
+      <i class="fas fa-backward"></i>
       <% end %>
     </div>
     <div class="middle">
@@ -10,7 +10,7 @@
     </div>
     <div class="right">
       <%= link_to destroy_user_session_path, method: :delete, class: "icon-links" do %>
-      <i class="fas fa-power-off icon-big"></i>
+      <i class="fas fa-power-off"></i>
       <% end %>
     </div>
   </div>
@@ -23,13 +23,13 @@
             <div class="userprofile-avatar">
               <div>
                 <% if @user.photo.attached? %>
-                  <%= cl_image_tag @user.photo.key, width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img" %>
+                  <%= cl_image_tag @user.photo.key, width: 136, height: 136, class: "hidden rounded-circle avatar-img" %>
                 <% else %>
-                  <%= image_tag "/assets/default_avatar.png", width: 136, height: 136, class: "hidden rounded-circle border border-dark avatar-img", id: "photo-preview" %>
+                  <%= image_tag "/assets/default_avatar.png", width: 136, height: 136, class: "hidden rounded-circle avatar-img", id: "photo-preview" %>
                 <% end %>
               </div>
               <div>
-                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit icon-big middle'}, label: '&nbsp;'.html_safe %>
+                <%= f.input :photo, as: :file, input_html: { class: 'd-none hidden', id: 'photo-input' }, label_html: { class: 'fas fa-edit middle'}, label: '&nbsp;'.html_safe %>
               </div>
             </div>
             <%= f.input :first_name %>
