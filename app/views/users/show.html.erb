@@ -10,7 +10,7 @@
       <h2>PARENTFRIEND'S DETAILS</h2>
     </div>
     <div class="right">
-        <i class="fas fa-star icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Add user to your friend list"></i>
+        <%# <i class="fas fa-star icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Add user to your friend list"></i> %>
         <% unless @user == current_user %>
           <%= link_to chatrooms_path(user_id: @user.id), method: :post do %>
             <i class="fas fa-comments icon-big" aria-hidden="true" data-toggle="tooltip" data-placement="top" data-html="true" title="Chat with user"></i>
@@ -32,7 +32,7 @@
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       </div>
     </div>
-    <div class="user_bio">
+    <div class="user_bio text-left">
       <%= @user.bio %>
     </div>
   </div>
