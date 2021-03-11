@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @event = Event.find(params[:event_id])
     @booking = Booking.new
     authorize @booking
-    if event_booked?(@event) == 0
+    if !event_booked?(@event)
       @booking.user = current_user
       @booking.event = @event
       if @booking.save!
@@ -34,9 +34,9 @@ class BookingsController < ApplicationController
   end
 
   def event_booked?(ev)
-    found = 0
+    found = false
     ev.bookings.each do |booking|
-      found = 1 if booking.user == current_user
+      found = true if booking.user == current_user
     end
     return found
   end
