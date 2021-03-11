@@ -7,7 +7,7 @@
   <%# cl_image_tag @event.photo.key, class: "event-show-image" %>
 <% else %>
 
-  <div class="banner-event-img" style="background-image: url('<%= image_tag "/assets/default_event.png", height: 250, crop: :fill %>')">
+  <div class="banner-event-img-default" style="background-image: url(<%= asset_path 'default_event.png', height: 250 %>)">
     <div class="container">
       <%= render "show_navbar", event: @event %>
     </div>
@@ -46,7 +46,7 @@
         <p><%= @event.address %></p>
       </div>
     <% if @event.bookings.length != 0 %>
-      <div><h3>attendees:</h3>
+      <div class='attendees'><h3>attendees:</h3>
         <% @event.bookings.each do |booking| %>
           <%= link_to user_path(booking.user) do %>
             <div class="d-flex justify-content-between align-items-center">

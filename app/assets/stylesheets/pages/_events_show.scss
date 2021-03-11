@@ -14,7 +14,19 @@
   margin-bottom: 16px;
 
   .fas {
-    color: #FFC65A;
+    color: $yellow;
+  }
+}
+
+.banner-event-img-default {
+  height: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 16px;
+
+  .fas {
+    color: $yellow;
   }
 }
 
@@ -26,8 +38,10 @@
 
   i {
     margin-right:10px;
+    margin-bottom: 16px;
   }
 }
+
 
 .attendee {
   color: black;
