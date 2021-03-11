@@ -1,15 +1,47 @@
-.event-show-image {
-  max-width: 100%;
-  min-width: calc(100vw - 30px);
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 5px; 
-  
+// .event-show-image {
+//   width: 100%;
+//   // min-width: calc(100vw - 30px);
+//   max-height: 300px;
+//   object-fit: cover;
+//   // border-radius: 5px;
+
+// }
+
+.banner-event-img {
+  height: 250px;
+  background-size: cover;
+  repeat: no-repeat;
+  margin-bottom: 16px;
+
+  .fas {
+    color: #FFC65A;
+  }
 }
+
 .headline-flexbox {
   padding: 10px;
 }
 
+.info-disp {
+
+  i {
+    margin-right:10px;
+  }
+}
+
+.attendee {
+  color: black;
+
+  .avatar-img {
+    margin-right: 10px;
+  }
+}
+
+#btn-small {
+  border-radius: 9px;
+  padding: 2px 12px;
+  font-size: 14px;
+}
 
 // .events-scrollable {
 
