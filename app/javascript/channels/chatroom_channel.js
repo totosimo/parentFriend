@@ -5,9 +5,9 @@ const initChatroomCable = () => {
   let messageLast = document.getElementById('message-last');
   // console.log(messageLast)
   // if (messageLast != null) { messageLast.scrollIntoView(false) }
-  messageLast.scrollIntoView(false)
 
   if (messagesContainer) {
+    messageLast.scrollIntoView(false)
     const id = messagesContainer.dataset.chatroomId;
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
