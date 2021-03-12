@@ -3,8 +3,9 @@ import consumer from "./consumer";
 const initChatroomCable = () => {
   let messagesContainer = document.getElementById('messages');
   let messageLast = document.getElementById('message-last');
-  console.log(messageLast)
-  if (messageLast != null) { messageLast.scrollIntoView(false) }
+  // console.log(messageLast)
+  // if (messageLast != null) { messageLast.scrollIntoView(false) }
+  messageLast.scrollIntoView(false)
 
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
