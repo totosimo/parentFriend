@@ -13,24 +13,23 @@
   justify-content: space-between;
   flex-direction: column;
 }
-.container-second {
-  height: 10vh;
-  background-color: rgb(246, 248, 248);
-}
-.headline {
-  font-size: 60px;
-  font-family: 'Bebas Neue';
-  color: #184d47;
-  text-shadow: 1px 1px #b8711f;
-
-
-}
 
 .button {
-
   display: flex;
   justify-content: flex-end;
 }
+
+// .container-second {
+//   height: 10vh;
+//   background-color: rgb(246, 248, 248);
+// }
+
+// .headline {
+//   font-size: 60px;
+//   font-family: 'Bebas Neue';
+//   color: #184d47;
+//   text-shadow: 1px 1px #b8711f;
+// }
 
 // .center {
 //   display: flex;
@@ -39,11 +38,3 @@
 //   font-size: 18px;
 //   height: 90%;
 // }
-
-.homepage-background {
-  background: url(background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
