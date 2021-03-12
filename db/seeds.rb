@@ -4,6 +4,8 @@ require 'json'
 
 starttime = Time.now
 
+# Deleting ###############################################################
+
 puts "Deleting all database entries..."
 Booking.delete_all
 Message.delete_all
@@ -15,7 +17,7 @@ User.delete_all
 puts "Done deleting. Starting seeding now."
 puts
 
-# Users #######################################
+# Users ##################################################################
 
 if Rails.env.production?
   puts "Detected production environment."
@@ -68,16 +70,8 @@ end
 puts "Finished creating users!"
 puts
 
-# Chatrooms  #######################################
-# puts "Creating chatrooms..."
-# Chatroom.create(name: 'Tom')
-# Chatroom.create(name: 'Silvia')
-# Chatroom.create(name: 'Sergey')
-# Chatroom.create(name: 'Moabit is beste!')
-# Chatroom.create(name: 'Picknick in Treptow')
-# puts "Finished!"
 
-# Events #######################################
+# Events #################################################################
 
 event_list = [
   [ "Picnic in Volkspark Wilmersdorf", "We will have a huge picnic basket with us with the basic stuff like bread, ham, cheese, plates, water, juices, etc. and we are looking for another family to join us.", "Eating", "2021-04-05 12:00:00", "2021-04-05 16:00:00", "Am Volkspark 53, 10715 Berlin", "https://cdn.pixabay.com/photo/2019/10/26/13/40/autumn-4579561_960_720.jpg" ],
@@ -128,3 +122,13 @@ puts "Finished creating events!"
 puts
 puts "Seed procedure completed in #{(Time.now - starttime).round(0)} seconds."
 puts
+
+
+# Chatrooms  ###################################
+# puts "Creating chatrooms..."
+# Chatroom.create(name: 'Tom')
+# Chatroom.create(name: 'Silvia')
+# Chatroom.create(name: 'Sergey')
+# Chatroom.create(name: 'Moabit is beste!')
+# Chatroom.create(name: 'Picknick in Treptow')
+# puts "Finished!"
