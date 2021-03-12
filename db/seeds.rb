@@ -100,7 +100,7 @@ event_list = [
 
   [ "Feeding ducks at Spreebogen", "Getting some fresh air in our lungs and sun in our faces. Bring some old bread with you for feeding the ducks, it is a great fun for the kids :-)", "Stroll", "2021-04-03 11:00:00", "2021-04-03 13:00:00", "Alt-Moabit 103, 10559 Berlin", "https://cdn.pixabay.com/photo/2020/05/05/16/29/berlin-5133836_960_720.jpg" ],
 
-  [ "A great view over Berlin from the Fernsehturm", "We have reserved a table for 10 in the restaurant on the top floor and still have 5 seats left for others to join us", "Eating", "2021-04-08 12:00:00", "2021-04-08 13:30:00", "Panoramastraße 1A, 10178 Berlin", "https://cdn.pixabay.com/photo/2020/02/18/00/06/tv-tower-4858167_960_720.jpg" ],
+  [ "A great view over Berlin", "We have reserved a table for 10 in the restaurant on the top floor of the Fernsehturm and still have 5 seats left for others to join us", "Eating", "2021-04-08 12:00:00", "2021-04-08 13:30:00", "Panoramastraße 1A, 10178 Berlin", "https://cdn.pixabay.com/photo/2020/02/18/00/06/tv-tower-4858167_960_720.jpg" ],
 
   [ "Birthday Party in 'Rosa Elefant' Kindercafé", "We will celebrate the 4th birthday of our son Oscar at the cosy Kindercafé 'Rosa Elefant' in Kurfürstenstraße. Come and join our party!", "Eating","2021-04-11 10:00:00", "2021-04-11 13:00:00", "Kurfürstenstraße 57-60, 10785 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ]
 ]
