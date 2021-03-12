@@ -7,11 +7,12 @@
   <h2><%= @user.first_name %></h2>
 </div>
 <div class="container">
-  <div class="chat-flexbox">
+  <div class="chat-flexbox" data-current-user-id=" <%= current_user.id %>">
     <div class="messages-scrollable" id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
+      <div id='message-last'></div>
     </div>
     <div>
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
