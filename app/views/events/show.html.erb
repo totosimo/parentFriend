@@ -71,8 +71,8 @@
                 <% else %>
                   <%= image_tag "/assets/default_avatar.png", width: 32, height: 32, class: "hidden rounded-circle avatar-img" %>
                 <% end %>
-                <%# booking.user == current_user ? 'Me' : '#{booking.user.first_name} #{booking.user.last_name}'  %>
-                <%# booking.user.first_name %> <%# booking.user.last_name %>
+                <% booking.user == current_user ? 'Me' : '#{booking.user.first_name} #{booking.user.last_name}'  %>
+                <%= booking.user.first_name %> <%= booking.user.last_name %>
               </div>
               <div>
                 <% if policy(booking).destroy? %>
