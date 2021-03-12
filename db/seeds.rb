@@ -4,6 +4,8 @@ require 'json'
 
 starttime = Time.now
 
+# Deleting ###############################################################
+
 puts "Deleting all database entries..."
 Booking.delete_all
 Message.delete_all
@@ -15,14 +17,14 @@ User.delete_all
 puts "Done deleting. Starting seeding now."
 puts
 
-# Users #######################################
+# Users ##################################################################
 
 if Rails.env.production?
   puts "Detected production environment."
   usercount = 100
 else
   puts "Did not detect production environment."
-  usercount = 50
+  usercount = 30
 end
 
 # Calls random user profile picture API and parses json response into
@@ -68,27 +70,33 @@ end
 puts "Finished creating users!"
 puts
 
-# Chatrooms  #######################################
-# puts "Creating chatrooms..."
-# Chatroom.create(name: 'Tom')
-# Chatroom.create(name: 'Silvia')
-# Chatroom.create(name: 'Sergey')
-# Chatroom.create(name: 'Moabit is beste!')
-# Chatroom.create(name: 'Picknick in Treptow')
-# puts "Finished!"
 
-# Events #######################################
+# Events #################################################################
 
 event_list = [
-  [ "Birthday Party on Skates", "We will celebrate the 4th birthday of our son Oscar at the Gleisdreieck Skatepark. Bring your skates and come join us!", "Sports","2021-03-15 16:00:00", "2021-03-15 18:00:00", "Möckernstraße 26, 10963 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ],
+  [ "Picnic in Volkspark Wilmersdorf", "We will have a huge picnic basket with us with the basic stuff like bread, ham, cheese, plates, water, juices, etc. and we are looking for another family to join us.", "Eating", "2021-04-05 12:00:00", "2021-04-05 16:00:00", "Am Volkspark 53, 10715 Berlin", "https://cdn.pixabay.com/photo/2019/10/26/13/40/autumn-4579561_960_720.jpg" ],
 
-  [ "Playdate at Victoriapark", "We will gather and play in the sand to build some nice castles together", "Playground", "2021-03-23 12:00:00", "2021-03-23 17:00:00", "Viktoriapark, 10965 Berlin", "https://images.unsplash.com/photo-1542868796-20f2ddc9d41f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" ],
+  [ "Skateboarding the bowls", "We will be skateboarding the amazing bowls at the Gleisdreieck Skatepark. Bring your boards and come join us!", "Sports","2021-03-15 16:00:00", "2021-03-15 18:00:00", "Möckernstraße 26, 10963 Berlin", "https://cdn.pixabay.com/photo/2019/02/04/17/18/skateboard-3975172_960_720.jpg" ],
 
   [ "Pancake party at Kindercafe", "We are organizing a pancake party at Kindercafe 'Biene Maja'. We will bring all ingredients and the kids will make the pancakes with us!", "Eating", "2021-03-24 10:00:00", "2021-03-24 16:00:00", "Wilhelmstraße 1-6, 10961 Berlin", "https://images.unsplash.com/photo-1605959255155-832d05b77e6d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" ],
 
+  [ "Playground Landwehrkanal", "We will be playing all day long at the great playground at the Landwehrkanal in Kreuzberg. Bring enough water to drink and some sunscreen", "Playground","2021-04-15 10:00:00", "2021-04-15 17:00:00", "Carl-Herz-Ufer 5, 10961 Berlin", "https://images.unsplash.com/photo-1542868796-20f2ddc9d41f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" ],
+
   [ "A day in the Zoo", "We are 4 families with 7 kids and will go to the zoo together, everyone is welcome to join us!", "Stroll", "2021-03-26 10:00:00", "2021-03-26 17:30:00", "Hardenbergplatz 8, 10787 Berlin", "https://images.unsplash.com/photo-1562805508-5b92dc24212d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" ],
 
-  [ "Sightseeing Brandenburg Gate", "We organize a sight seeing tour for our 10 year old and will hire a city guide to explain us everything. Come and join and we do the tour together and go for icecreams afterwards!", "Stroll","2021-03-28 11:30:00", "2021-03-28 15:30:00", "Brandenburger Tor, 10117 Berlin", "https://images.unsplash.com/photo-1582738719480-9c959daf59b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=663&q=80" ]
+  [ "Sightseeing Brandenburg Gate", "We organize a sight seeing tour for our 10 year old and will hire a city guide to explain us everything. Come and join and we do the tour together and go for icecreams afterwards!", "Stroll", "2021-03-28 11:30:00", "2021-03-28 15:30:00", "Brandenburger Tor, 10117 Berlin", "https://cdn.pixabay.com/photo/2020/05/01/15/18/brand-front-of-the-brandenburg-gate-5117579_960_720.jpg" ],
+
+  [ "Playdate at Victoriapark", "We will gather and play in the sand to build some nice castles together", "Playground", "2021-03-23 12:00:00", "2021-03-23 17:00:00", "Viktoriapark, 10965 Berlin", "https://cdn.pixabay.com/photo/2017/07/28/09/34/sand-2548132_960_720.jpg" ],
+
+  [ "Visit Arminus Markthalle Moabit", "The market of Arminus is a very beautiful experience for our small ones with many things to see and learn. We will be 4 parents and 5 kids and anyone who wants to join us is very welcome.", "Stroll", "2021-04-01 12:00:00", "2021-04-01 14:00:00", "Arminiusstraße 2-4, 10551 Berlin", "https://cdn.pixabay.com/photo/2017/09/09/16/38/vegetables-2732589_960_720.jpg" ],
+
+  [ "Inline Skating Tempelhofer Feld", "Have you ever skated on an airfield?! This is your opportunity!", "Sports", "2021-04-09 11:00:00", "2021-04-09 16:30:00", "Tempelhofer Damm, 12101 Berlin", "https://cdn.pixabay.com/photo/2017/04/17/07/35/inline-skating-2236674_960_720.jpg" ],
+
+  [ "Feeding ducks at Spreebogen", "Getting some fresh air in our lungs and sun in our faces. Bring some old bread with you for feeding the ducks, it is a great fun for the kids :-)", "Stroll", "2021-04-03 11:00:00", "2021-04-03 13:00:00", "Alt-Moabit 103, 10559 Berlin", "https://cdn.pixabay.com/photo/2020/05/05/16/29/berlin-5133836_960_720.jpg" ],
+
+  [ "A great view over Berlin", "We have reserved a table for 10 in the restaurant on the top floor of the Fernsehturm and still have 5 seats left for others to join us", "Eating", "2021-04-08 12:00:00", "2021-04-08 13:30:00", "Panoramastraße 1A, 10178 Berlin", "https://cdn.pixabay.com/photo/2020/02/18/00/06/tv-tower-4858167_960_720.jpg" ],
+
+  [ "Birthday Party at 'Rosa Elefant'", "We will be celebrating the 4th birthday of our son Oscar at the cosy Kindercafé 'Rosa Elefant' in Kurfürstenstraße. Come and join our party!", "Eating","2021-04-11 10:00:00", "2021-04-11 13:00:00", "Kurfürstenstraße 57-60, 10785 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ]
 ]
 
 user_id = 1
@@ -114,3 +122,13 @@ puts "Finished creating events!"
 puts
 puts "Seed procedure completed in #{(Time.now - starttime).round(0)} seconds."
 puts
+
+
+# Chatrooms  ###################################
+# puts "Creating chatrooms..."
+# Chatroom.create(name: 'Tom')
+# Chatroom.create(name: 'Silvia')
+# Chatroom.create(name: 'Sergey')
+# Chatroom.create(name: 'Moabit is beste!')
+# Chatroom.create(name: 'Picknick in Treptow')
+# puts "Finished!"
