@@ -1,6 +1,10 @@
 <% content_for :meta_title, "#{@event.name} event on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @event.description %>
-<% content_for :meta_image, cl_image_path(@event.photo) %>
+<% if @event.photo.attached? %>
+  <% content_for :meta_image, cl_image_path(@event.photo) %>
+<% else %>
+  <%= content_for :meta_image, image_url("/assets/default_event.png") %>
+<% end %>
 
 <% if @event.photo.attached? %>
   <div class="banner-event-img" style="background-image: url('<%= cl_image_path @event.photo.key, height: 250, crop: :fill %>')">
