@@ -5,10 +5,10 @@
   padding-left: 10px;
   padding-bottom: 20px;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   background-position: bottom;
   background-size: cover;
-  background-image: image-url('background.JPG'); 
+  background-image: image-url('background.jpg');
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -22,15 +22,16 @@
   font-family: 'Bebas Neue';
   color: #184d47;
   text-shadow: 1px 1px #b8711f;
-  
+
 
 }
 
 .button {
-  
+
   display: flex;
   justify-content: flex-end;
 }
+
 // .center {
 //   display: flex;
 //   align-items: center;
@@ -39,3 +40,10 @@
 //   height: 90%;
 // }
 
+.homepage-background {
+  background: url(background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
