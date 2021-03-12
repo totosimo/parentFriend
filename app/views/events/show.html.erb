@@ -14,7 +14,6 @@
   </div>
   <%# cl_image_tag @event.photo.key, class: "event-show-image" %>
 <% else %>
-
   <div class="banner-event-img-default" style="background-image: url(<%= asset_path 'default_event.png', height: 250 %>)">
     <div class="container">
       <%= render "show_navbar", event: @event %>
