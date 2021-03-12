@@ -22,7 +22,7 @@ if Rails.env.production?
   usercount = 100
 else
   puts "Did not detect production environment."
-  usercount = 1
+  usercount = 50
 end
 
 # Calls random user profile picture API and parses json response into
