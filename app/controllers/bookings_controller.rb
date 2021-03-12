@@ -40,4 +40,5 @@ class BookingsController < ApplicationController
     end
     return found
   end
+
 end
