@@ -14,20 +14,15 @@ class MessagesController < ApplicationController
           message_id: @message.id,
           message_user_name: @message.user.first_name
         }
-
       )
-      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+      # redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
       render "chatrooms/show"
       # comment
     end
   end
-
   private
-
   def message_params
     params.require(:message).permit(:content)
   end
-
-
 end
