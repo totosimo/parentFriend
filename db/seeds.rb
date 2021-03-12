@@ -102,7 +102,7 @@ event_list = [
 
   [ "A great view over Berlin", "We have reserved a table for 10 in the restaurant on the top floor of the Fernsehturm and still have 5 seats left for others to join us", "Eating", "2021-04-08 12:00:00", "2021-04-08 13:30:00", "Panoramastraße 1A, 10178 Berlin", "https://cdn.pixabay.com/photo/2020/02/18/00/06/tv-tower-4858167_960_720.jpg" ],
 
-  [ "Birthday Party in 'Rosa Elefant' Kindercafé", "We will celebrate the 4th birthday of our son Oscar at the cosy Kindercafé 'Rosa Elefant' in Kurfürstenstraße. Come and join our party!", "Eating","2021-04-11 10:00:00", "2021-04-11 13:00:00", "Kurfürstenstraße 57-60, 10785 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ]
+  [ "Birthday Party at 'Rosa Elefant'", "We will be celebrating the 4th birthday of our son Oscar at the cosy Kindercafé 'Rosa Elefant' in Kurfürstenstraße. Come and join our party!", "Eating","2021-04-11 10:00:00", "2021-04-11 13:00:00", "Kurfürstenstraße 57-60, 10785 Berlin", "https://images.unsplash.com/photo-1553803867-48ac36024cba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" ]
 ]
 
 user_id = 1
