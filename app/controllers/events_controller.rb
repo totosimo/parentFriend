@@ -14,7 +14,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @bkgs = @event.bookings
     authorize @event
+    @found = false
+    @bkgs.each do |booking|
+      @found = true if booking.user == current_user
+    end
   end
 
   def new
@@ -58,11 +63,10 @@ class EventsController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
   def event_params
     params.require(:event).permit(:name, :description, :date_time_start, :date_time_end, :address, :event_type, :photo)
-  end
-  
+  end  
 end
